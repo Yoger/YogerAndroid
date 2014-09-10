@@ -91,6 +91,7 @@ public class ClassifyAct extends Activity {
 				return 0;
 			}
 
+			
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
 				TextView bigSelect=null;
@@ -106,6 +107,42 @@ public class ClassifyAct extends Activity {
 					public void onItemClick(AdapterView<?> arg0, View arg1,
 							int arg2, long arg3) {
 						// TODO Auto-generated method stub
+						switch(arg2){
+						case 0:
+							lstImageItem = new ArrayList<HashMap<String, Object>>();
+							for(int i=0;i<10;i++)  
+						      {  
+						        HashMap<String, Object> map = new HashMap<String, Object>();  
+						        map.put("ItemImage", R.drawable.bre);//添加图像资源的ID   
+						        map.put("ItemText", "NO."+String.valueOf(i));//按序号做ItemText   
+						        lstImageItem.add(map);  
+						      }  
+							setGridView1();
+							break;
+						case 1:
+							lstImageItem = new ArrayList<HashMap<String, Object>>();
+							for(int i=0;i<10;i++)  
+						      {  
+						        HashMap<String, Object> map = new HashMap<String, Object>();  
+						        map.put("ItemImage", R.drawable.lunch);//添加图像资源的ID   
+						        map.put("ItemText", "NO."+String.valueOf(i));//按序号做ItemText   
+						        lstImageItem.add(map);  
+						      } 
+							setGridView1();
+							break;
+							default:
+								lstImageItem = new ArrayList<HashMap<String, Object>>();
+								for(int i=0;i<10;i++)  
+							      {  
+							        HashMap<String, Object> map = new HashMap<String, Object>();  
+							        map.put("ItemImage", R.drawable.dinner);//添加图像资源的ID   
+							        map.put("ItemText", "NO."+String.valueOf(i));//按序号做ItemText   
+							        lstImageItem.add(map);  
+							      }
+								setGridView1();
+								break;
+								
+						}
 						
 					}
 			    	
@@ -118,16 +155,10 @@ public class ClassifyAct extends Activity {
 	    
   //////list   
   /////gridview
+		
+		ArrayList<HashMap<String, Object>> lstImageItem = new ArrayList<HashMap<String, Object>>();  
 	 public void setGridView1(){
 		  MyGridView gridview = (MyGridView) findViewById(R.id.classify_gridView1);  
-	      ArrayList<HashMap<String, Object>> lstImageItem = new ArrayList<HashMap<String, Object>>();  
-	      for(int i=0;i<10;i++)  
-	      {  
-	        HashMap<String, Object> map = new HashMap<String, Object>();  
-	        map.put("ItemImage", R.drawable.bre);//添加图像资源的ID   
-	        map.put("ItemText", "NO."+String.valueOf(i));//按序号做ItemText   
-	        lstImageItem.add(map);  
-	      }  
 	      //生成适配器的ImageItem <====> 动态数组的元素，两者一一对应   
 	      SimpleAdapter saImageItems = new SimpleAdapter(this, //没什么解释   
 	                                                lstImageItem,//数据来源    
@@ -140,7 +171,8 @@ public class ClassifyAct extends Activity {
 	      gridview.setAdapter(saImageItems);  
 	      //添加消息处理   
 	      gridview.setOnItemClickListener(new ItemClickListener1());  
-	      }  
+	      }
+	 
 	  class  ItemClickListener1 implements OnItemClickListener  
 	  {  
 	       public void onItemClick(AdapterView<?> arg0,//The AdapterView where the click happened    
@@ -165,6 +197,15 @@ public class ClassifyAct extends Activity {
 		MyListAdapter adapter = new MyListAdapter(this);
 		ls=(ListView)findViewById(R.id.classfy_listview);
 		ls.setAdapter(adapter);
+		
+		/*lstImageItem = new ArrayList<HashMap<String, Object>>();
+		for(int i=0;i<10;i++)  
+	      {  
+	        HashMap<String, Object> map = new HashMap<String, Object>();  
+	        map.put("ItemImage", R.drawable.dinner);//添加图像资源的ID   
+	        map.put("ItemText", "NO."+String.valueOf(i));//按序号做ItemText   
+	        lstImageItem.add(map);  
+	      }*/
 		setGridView1();
 		classify_search = (ImageView) findViewById(R.id.clissify_search_iv);
 		classify_search.setOnClickListener(new OnClickListener(){

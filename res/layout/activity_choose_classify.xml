@@ -42,11 +42,6 @@
                     android:text="Large Text"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <TextView
-                    android:id="@+id/choose_smallselect1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
 
                 <com.example.community.MyGridView
                     android:id="@+id/choose_classify_gridView1"
@@ -55,18 +50,7 @@
                     android:numColumns="3" >
                 </com.example.community.MyGridView>
 
-                <TextView
-                    android:id="@+id/choose_smallselect2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
-
-                <com.example.community.MyGridView
-                    android:id="@+id/choose_classify_gridView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:numColumns="3" >
-                </com.example.community.MyGridView>
+ 
             </LinearLayout>
         </ScrollView>
 

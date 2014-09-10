@@ -6,14 +6,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-        <Spinner
-           android:id="@+id/classify_search_type"
-           android:layout_width="74dp"
-           android:layout_height="wrap_content"
-           android:layout_alignBottom="@+id/editText1" />
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/clissify_search_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -21,12 +16,15 @@
             android:src="@drawable/ic_launcher" />
 
         <EditText
-            android:id="@+id/editText1"
+            android:id="@+id/classify_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/imageView1"
-            android:ems="10" >
+            android:layout_toLeftOf="@+id/clissify_search_iv"
+            android:ems="10"
+            android:focusableInTouchMode="false"
+            android:text="请输入搜索内容" >
 
             <requestFocus />
         </EditText>
@@ -61,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
-            <LinearLayout
+              <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical" >
@@ -73,11 +71,7 @@
                     android:text="Large Text"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <TextView
-                    android:id="@+id/smallselect1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
+       
 
                 <com.example.community.MyGridView
                     android:id="@+id/classify_gridView1"
@@ -86,18 +80,7 @@
                     android:numColumns="3" >
                 </com.example.community.MyGridView>
 
-                <TextView
-                    android:id="@+id/smallselect2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
 
-                <com.example.community.MyGridView
-                    android:id="@+id/classify_gridView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:numColumns="3" >
-                </com.example.community.MyGridView>
             </LinearLayout>
         </ScrollView>
 

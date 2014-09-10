@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -59,14 +61,14 @@ public class InfoDetailActivity extends Activity {
 	        myCollectImg.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-				    Intent intent = new Intent(InfoDetailActivity.this,FocusActivity.class);
+				    Intent intent = new Intent(InfoDetailActivity.this,CollectActivity.class);
 					startActivity(intent);
 				}
 			});
 	        myCollectTV.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-				    Intent intent = new Intent(InfoDetailActivity.this,FocusActivity.class);
+				    Intent intent = new Intent(InfoDetailActivity.this,CollectActivity.class);
 					startActivity(intent);
 				}
 			});
@@ -96,24 +98,25 @@ public class InfoDetailActivity extends Activity {
 	       
 	        HashMap<String, Object> map1 = new HashMap<String, Object>();  
 	        map1.put("ItemImage", R.drawable.add);
-	        map1.put("ItemTitle", "锟斤拷锟节筹拷锟斤拷");
+	        map1.put("ItemTitle", "正在出售");
 
 	        dingDanList.add(map1); 
 	        
 	        HashMap<String, Object> map2 = new HashMap<String, Object>();
 	        map2.put("ItemImage", R.drawable.add); 
-	        map2.put("ItemTitle", "锟斤拷锟斤拷沙锟斤拷锟�");
+	        map2.put("ItemTitle", "已完成出售");
 
 	        dingDanList.add(map2);
 	         
 	        HashMap<String, Object> map3 = new HashMap<String, Object>();
 	        map3.put("ItemImage", R.drawable.add);  
-	        map3.put("ItemTitle", "锟斤拷锟斤拷锟�");
+	        map3.put("ItemTitle", "审核中");
+	        
+	        dingDanList.add(map3);
 
-	         
 	        HashMap<String, Object> map4 = new HashMap<String, Object>();
 	        map4.put("ItemImage", R.drawable.add);  
-	        map4.put("ItemTitle", "锟斤拷锟铰硷拷");
+	        map4.put("ItemTitle", "已下架");
 	        dingDanList.add(map4);                  //锟斤拷锟斤拷锟斤拷锟斤拷ListView锟斤拷锟斤拷
 
 	         
@@ -121,13 +124,13 @@ public class InfoDetailActivity extends Activity {
 	         
 	         HashMap<String, Object> map5 = new HashMap<String, Object>();
 	         map5.put("ItemImage", R.drawable.add);  
-	         map5.put("ItemTitle", "锟斤拷锟斤拷锟斤拷");
+	         map5.put("ItemTitle", "正在求购");
 
 	         qiuGouList.add(map5); 
 	         
 	         HashMap<String, Object> map6 = new HashMap<String, Object>();
 	         map6.put("ItemImage", R.drawable.add);  
-	         map6.put("ItemTitle", "锟斤拷锟斤拷械锟斤拷锟�");
+	         map6.put("ItemTitle", "审核中的求购");
 	         qiuGouList.add(map6);                 //锟襟购癸拷锟斤拷ListView锟斤拷锟斤拷
 	 
 	         
@@ -154,10 +157,93 @@ public class InfoDetailActivity extends Activity {
 	//锟斤拷硬锟斤拷锟斤拷锟绞� 
 
 	        dingDanManage.setAdapter(dingDanSchedule); 
+	        
+	        /*dingDanManage。setOnTouchListener(new OnTouchListener(){
+	        	@Override 
+	            public boolean onTouch(View v, MotionEvent event) { 
+	                // TODO Auto-generated method stub 
+	                if(event.getAction() == MotionEvent.ACTION_DOWN) 
+	                { 
+	                	dingDanManage.setBackgroundColor(Color.BLUE); 
+	                } 
+	                return false; 
+	            } 
+	        });*/
+	        
+	        dingDanManage.setOnItemClickListener(new OnItemClickListener(){ 
+	        	  
+	            @Override
+	            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, 
+	                    long arg3) { 
+	                // TODO Auto-generated method stub 
+	            	Intent intent = new Intent();
+	            	switch(arg2)
+	            	{
+	            	case 0:
+	            		intent = new Intent(InfoDetailActivity.this,SoldingGoodsActivity.class);
+						startActivity(intent);
+						break;
+	            	case 1:
+	            		intent = new Intent(InfoDetailActivity.this,SoldGoodsActivity.class);
+						startActivity(intent);
+						break;
+	            	case 2:
+	            		intent = new Intent(InfoDetailActivity.this,CheckingGoodsActivity.class);
+						startActivity(intent);
+						break;
+	            	case 3:
+	            		intent = new Intent(InfoDetailActivity.this,GivenUpGoodsActivity.class);
+						startActivity(intent);
+						break;
+	            	}
+	               /* if(dingDanList.get(arg2).equals("0")) 
+	                { 
+	                	Intent intent = new Intent(InfoDetailActivity.this,CollectActivity.class);
+						startActivity(intent);
+	                } 
+	                if(dingDanList.get(arg2).equals("1")) 
+	                { 
+	                	Intent intent = new Intent(InfoDetailActivity.this,CollectActivity.class);
+						startActivity(intent); 
+	                } 
+	                if(dingDanList.get(arg2).equals("2")) 
+	                { 
+	                	Intent intent = new Intent(InfoDetailActivity.this,CollectActivity.class);
+						startActivity(intent);
+	                } 
+	                if(dingDanList.get(arg2).equals("3")) 
+	                { 
+	                	Intent intent = new Intent(InfoDetailActivity.this,CollectActivity.class);
+						startActivity(intent);
+	                }*/
+	            	System.out.println(arg2);
+	            } 
+	              
+	        }); 
+	        
 	        qiuGouManage.setAdapter(qiuGouSchedule); 
+	        
+	        qiuGouManage.setOnItemClickListener(new OnItemClickListener(){ 
+	        	  
+	            @Override
+	            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, 
+	                    long arg3) { 
+	                // TODO Auto-generated method stub 
+	            	Intent intent = new Intent();
+	            	switch(arg2)
+	            	{
+	            	case 0:
+	            		intent = new Intent(InfoDetailActivity.this,MakeMoneyAct.class);
+						startActivity(intent);
+						break;
+	            	case 1:
+	            		intent = new Intent(InfoDetailActivity.this,MakeMoneyAct.class);
+						startActivity(intent);
+						break;
+	            	}
 	    }
-	    
-
-	  
-
+	        });
+	   }
 }
+	    
+	       

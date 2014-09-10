@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -87,12 +89,19 @@ public class InfoDetailActivity extends Activity {
 				}
 			});
 	        
+	        exitAccountButton.setOnClickListener(new OnClickListener(){
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					askForOut();
+				}
+	        	
+	        });
+	     
 
 	        ListView dingDanManage = (ListView) findViewById(R.id.dingDanManage);  
 	        ListView qiuGouManage = (ListView) findViewById(R.id.qiuGouManage);
-	          
-
-	        
 	    
 	        ArrayList<HashMap<String, Object>> dingDanList = new ArrayList<HashMap<String, Object>>(); 
 	       
@@ -233,17 +242,43 @@ public class InfoDetailActivity extends Activity {
 	            	switch(arg2)
 	            	{
 	            	case 0:
-	            		intent = new Intent(InfoDetailActivity.this,MakeMoneyAct.class);
+	            		intent = new Intent(InfoDetailActivity.this,SeekingActivity.class);
 						startActivity(intent);
 						break;
 	            	case 1:
-	            		intent = new Intent(InfoDetailActivity.this,MakeMoneyAct.class);
+	            		intent = new Intent(InfoDetailActivity.this,CheckingSeekActivity.class);
 						startActivity(intent);
 						break;
 	            	}
 	    }
 	        });
 	   }
+	   
+	   private void askForOut() {
+   		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+   		builder.setTitle("确定退出").setMessage("确定退出？").setPositiveButton("确定",
+   				new DialogInterface.OnClickListener() {
+   					@Override
+   					public void onClick(DialogInterface dialog, 
+   							int which) {
+   						Intent intent = new Intent(InfoDetailActivity.this,LoginAct.class);
+   					    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+   						startActivity(intent);
+   						finish();
+   					}
+   				}).setNegativeButton("取消",
+   				new DialogInterface.OnClickListener() {
+   					@Override
+   					public void onClick(DialogInterface dialog, 
+   							int which) {
+   						dialog.cancel();
+   					}
+   				}).setCancelable(false).show();
+
+   	
+
+   	}
 }
 	    
 	       

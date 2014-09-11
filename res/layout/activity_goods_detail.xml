@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F0F0F0"
     android:orientation="vertical" >
     
     <RelativeLayout 
+    android:id="@+id/detailbigtititle"
+    android:layout_alignParentTop="true"
     android:layout_width="match_parent"
     android:layout_height="40dp"
     android:background="@drawable/btn_normal">
@@ -26,11 +28,68 @@
         android:textStyle="bold"
         android:text="@string/app_name"/>
      </RelativeLayout>
-     
+      <LinearLayout
+            android:id="@+id/detailbottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+           > 
+      <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/nocollect"/>
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/sales_display_button_collect"/>
+    </LinearLayout>
+        <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/shareicon"/>
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/sales_display_button_share"/>
+    </LinearLayout>
+      <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/messageicon"/>
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/sales_display_button_message"/>
+    </LinearLayout>
+   </LinearLayout>
+              <!-- 第一个LinearLayout 存放商品名称等基本信息 -->
     <LinearLayout
         android:id="@+id/GoodsDetail_GoodsLine"
         android:layout_width="match_parent"
         android:layout_height="115dp"
+        android:layout_below="@id/detailbigtititle"
         android:orientation="horizontal"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
@@ -76,29 +135,32 @@
                 android:layout_height="40dp"
                 android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/GoodsDetail_like"
+                <ImageView 
+                    android:id="@+id/bad_point"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="@string/sales_display_like"/>
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/star_bad"/>
                 <TextView
                     android:id="@+id/GoodsDetail_likeCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:textColor="#000"
                     android:text="@string/sales_display_likecount" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
     <ScrollView 
+        android:id="@+id/detailmain"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/detailbottom"
+        android:layout_below="@id/GoodsDetail_GoodsLine"
         android:scrollbars="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="10dp" >
 
@@ -240,6 +302,7 @@
             android:src="@drawable/no_pic" />     
          </LinearLayout>
             <TextView
+                android:id="@+id/GoodsDetail_detaildescripe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
@@ -251,19 +314,6 @@
             android:layout_height="4dp"
             android:background="@drawable/details_line"
             android:contentDescription="@null" />
-         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:textColor="#000"
-                android:text="@string/sales_display_message" />
-      <ListView
-        android:id="@+id/goodsDetail_Messagelv"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:divider="@drawable/line">
-    </ListView>
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="4dp"
@@ -281,51 +331,9 @@
 		    android:layout_height="0px" 
 		    android:focusable="true"
 		    android:focusableInTouchMode="true">
-            <requestFocus/>
-        </LinearLayout>
-           
-             <EditText 
-                android:id="@+id/GoodsDetail_Edit_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/register_input"/>
-            
-
-             <Button
-                    android:id="@+id/GoodsDetail_Button_Message"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="@string/sales_display_button_message"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp" > 
-             <Button
-                    android:id="@+id/GoodsDetail_Button_Collect"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="@string/sales_display_button_collect"
-                    android:textColor="#FFF"
-                    android:textSize="36sp"/>
-             <Button
-                    android:id="@+id/GoodsDetail_Button_Share"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="@string/sales_display_button_share"
-                    android:textColor="#FFF"
-                    android:textSize="36sp"/>
-         </LinearLayout>
-
+       </LinearLayout>
+       </LinearLayout>
        </LinearLayout>
      </ScrollView>
 
- </LinearLayout>
+ </RelativeLayout>

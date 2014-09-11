@@ -3,9 +3,6 @@ package com.example.community;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import com.example.community.ClassifyAct.ItemClickListener1;
-import com.example.community.ClassifyAct.ItemClickListener2;
 import com.example.community.ClassifyAct.MyListAdapter;
 
 import android.os.Bundle;
@@ -146,46 +143,7 @@ public class ChooseClassifyAct extends Activity {
 }  
        
 }
-  public void setGridView2(){
-	  MyGridView gridview = (MyGridView) findViewById(R.id.choose_classify_gridView2);  
-      ArrayList<HashMap<String, Object>> lstImageItem = new ArrayList<HashMap<String, Object>>();  
-      for(int i=0;i<10;i++)  
-      {  
-        HashMap<String, Object> map = new HashMap<String, Object>();  
-        map.put("ItemImage", R.drawable.bre);//添加图像资源的ID   
-        map.put("ItemText", "NO."+String.valueOf(i));//按序号做ItemText   
-        lstImageItem.add(map);  
-      }  
-      //生成适配器的ImageItem <====> 动态数组的元素，两者一一对应   
-      SimpleAdapter saImageItems = new SimpleAdapter(this, //没什么解释   
-                                                lstImageItem,//数据来源    
-                                                R.layout.gridview,//night_item的XML实现   
-                                                 //动态数组与ImageItem对应的子项           
-                                                new String[] {"ItemImage","ItemText"},   
-                                                 //ImageItem的XML文件里面的一个ImageView,两个TextView ID   
-                                                new int[] {R.id.Grid_ItemImage,R.id.Grid_ItemText});  
-      //添加并且显示   
-      gridview.setAdapter(saImageItems);  
-      //添加消息处理   
-      gridview.setOnItemClickListener(new ItemClickListener2());  
-      }  
-      class  ItemClickListener2 implements OnItemClickListener  
-      {  
-         public void onItemClick(AdapterView<?> arg0,//The AdapterView where the click happened    
-                                  View arg1,//The view within the AdapterView that was clicked   
-                                  int arg2,//The position of the view in the adapter   
-                                  long arg3//The row id of the item that was clicked   
-                                  ) {  
-       //在本例中arg2=arg3   
-       HashMap<String, Object> item=(HashMap<String, Object>) arg0.getItemAtPosition(arg2);  
-       //显示所选Item的ItemText   
-       setTitle((String)item.get("ItemText"));  
-       finish();
-      }  
-       
-}
-	
-	
+ 
 	
 	
 /////gridview
@@ -199,7 +157,6 @@ public class ChooseClassifyAct extends Activity {
 		ls=(ListView)findViewById(R.id.choose_classfy_listview);
 		ls.setAdapter(adapter);
 		setGridView1();
-		setGridView2();
 	}
 
 

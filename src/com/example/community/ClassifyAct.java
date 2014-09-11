@@ -5,52 +5,34 @@ import java.util.List;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ClassifyAct extends Activity {
 	
-	    private Spinner c_searchType = null; 
-        ArrayAdapter<String> c_searchTypeAdapter = null; 
-	    private String[] c_searchTypeArray = new String[] {"商品","服务","用户"};
+
 	    
 	    private List<String> mListData;
 	    private ListView ls=null;
+	    private ImageView classify_search=null;
+	    private EditText classify_edittext=null;
 	  	 
-	    private void set_searchType()
-	    {        
-	    	c_searchType = (Spinner)findViewById(R.id.classify_search_type);
-	    	c_searchTypeAdapter = new ArrayAdapter<String>(ClassifyAct.this,
-	                android.R.layout.simple_spinner_item, c_searchTypeArray);
-	    	c_searchType.setAdapter(c_searchTypeAdapter);
-	    	c_searchType.setSelection(0,true);  
-	    	c_searchType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-	        {
-	            @Override
-	            public void onNothingSelected(AdapterView<?> arg0)
-	            {
-
-	            }
-
-				@Override
-				public void onItemSelected(AdapterView<?> arg0, View arg1,
-						int arg2, long arg3) {
-					// TODO Auto-generated method stub   arg2为当前选项 0-2
-				
-				}
-	         });
-	    }
-	    
+	 
 	//////list
 
 		
@@ -173,62 +155,34 @@ public class ClassifyAct extends Activity {
 	}  
 	       
    }
-	  public void setGridView2(){
-		  MyGridView gridview = (MyGridView) findViewById(R.id.classify_gridView2);  
-	      ArrayList<HashMap<String, Object>> lstImageItem = new ArrayList<HashMap<String, Object>>();  
-	      for(int i=0;i<10;i++)  
-	      {  
-	        HashMap<String, Object> map = new HashMap<String, Object>();  
-	        map.put("ItemImage", R.drawable.bre);//添加图像资源的ID   
-	        map.put("ItemText", "NO."+String.valueOf(i));//按序号做ItemText   
-	        lstImageItem.add(map);  
-	      }  
-	      //生成适配器的ImageItem <====> 动态数组的元素，两者一一对应   
-	      SimpleAdapter saImageItems = new SimpleAdapter(this, //没什么解释   
-	                                                lstImageItem,//数据来源    
-	                                                R.layout.gridview,//night_item的XML实现   
-	                                                 //动态数组与ImageItem对应的子项           
-	                                                new String[] {"ItemImage","ItemText"},   
-	                                                 //ImageItem的XML文件里面的一个ImageView,两个TextView ID   
-	                                                new int[] {R.id.Grid_ItemImage,R.id.Grid_ItemText});  
-	      //添加并且显示   
-	      gridview.setAdapter(saImageItems);  
-	      //添加消息处理   
-	      gridview.setOnItemClickListener(new ItemClickListener2());  
-	      }  
-	      class  ItemClickListener2 implements OnItemClickListener  
-	      {  
-	         public void onItemClick(AdapterView<?> arg0,//The AdapterView where the click happened    
-	                                  View arg1,//The view within the AdapterView that was clicked   
-	                                  int arg2,//The position of the view in the adapter   
-	                                  long arg3//The row id of the item that was clicked   
-	                                  ) {  
-	       //在本例中arg2=arg3   
-	       HashMap<String, Object> item=(HashMap<String, Object>) arg0.getItemAtPosition(arg2);  
-	       //显示所选Item的ItemText   
-	       setTitle((String)item.get("ItemText"));  
-	      }  
-	       
-   }
 		
 		
-		
-		
-
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_classify);
-
-		set_searchType();
 		mListData = getListData();
 		MyListAdapter adapter = new MyListAdapter(this);
 		ls=(ListView)findViewById(R.id.classfy_listview);
 		ls.setAdapter(adapter);
 		setGridView1();
-		setGridView2();
-
+		classify_search = (ImageView) findViewById(R.id.clissify_search_iv);
+		classify_search.setOnClickListener(new OnClickListener(){
+			public void onClick(View arg0) {
+               Toast.makeText(ClassifyAct.this,"请先输入搜索内容",500).show();       
+			}
+			
+		});
+		classify_edittext = (EditText) findViewById(R.id.classify_edit);
+		classify_edittext.setOnClickListener(new OnClickListener(){
+			public void onClick(View arg0) {
+               Intent intent=new Intent(ClassifyAct.this,SearchingAct.class);
+               startActivity(intent);
+               
+				
+			}
+			
+		});
 	}
 
 }

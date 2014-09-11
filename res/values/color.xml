@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent_background">#50000000</color>
+<!-- 前两位为透明度设置 00-99 透明-不透明 后6位为颜色设置 -->
+    <color name="gainboro">#DCDCDC</color>
+
+</resources>

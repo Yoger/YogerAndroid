@@ -1,12 +1,13 @@
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
-     <RelativeLayout 
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:background="@drawable/btn_normal">
+     <RelativeLayout
+         android:id="@+id/main_top" 
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="@drawable/btn_normal">
     <Button
 		android:id="@+id/TitleBackBtn"
         android:layout_width="wrap_content"   
@@ -25,18 +26,8 @@
         android:text="@string/app_name"/>
      </RelativeLayout>
     
-    <LinearLayout
-        android:id="@+id/messages"
-        android:layout_width="fill_parent"
-        android:layout_height="540dp"
-        android:layout_marginBottom="0dp"
-        android:fillViewport="true"
-        android:measureAllChildren="true"
-        android:orientation="horizontal" >
-
-     </LinearLayout>
-    
-       <LinearLayout 
+       <LinearLayout
+            android:id="@+id/main_bottom" 
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:gravity="bottom"
@@ -87,6 +78,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_gravity="center"
 			        android:textSize="12sp"
+			        android:paddingBottom="3dp"
 			        android:text="赚钱 " />		    
 		</LinearLayout>
 		
@@ -94,7 +86,7 @@
 		    android:layout_width="0dp"
 		    android:layout_height="fill_parent"
 		    android:layout_gravity="center"
-		        android:layout_weight="1"
+		    android:layout_weight="1"
 		    android:orientation="vertical">   
 		        <ImageView
 		            android:id="@+id/mainpage_image_add"
@@ -152,5 +144,17 @@
 			    android:text="我 " />		    
 		</LinearLayout> 		
 </LinearLayout>
+    <LinearLayout
+        android:id="@+id/messages"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/main_bottom"
+        android:layout_below="@id/main_top"
+        android:layout_marginBottom="0dp"
+        android:fillViewport="true"
+        android:measureAllChildren="true"
+        android:orientation="horizontal" >
+
+     </LinearLayout>
 	
-</LinearLayout>
+</RelativeLayout>

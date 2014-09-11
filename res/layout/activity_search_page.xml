@@ -38,21 +38,22 @@
 		    android:layout_height="0px" android:focusable="true"
 		    android:focusableInTouchMode="true"></LinearLayout>
 
-
         <EditText
             android:id="@+id/editText1"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:paddingLeft="28dp"
             android:layout_toRightOf="@+id/search_type"
+            android:background="@drawable/login_text_shape"
             android:ems="10" />
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+       <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignLeft="@id/editText1"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/editText1"
+            android:layout_marginLeft="5dp"
+            android:contentDescription="@null"
             android:src="@drawable/ic_launcher" />
 
     </RelativeLayout>

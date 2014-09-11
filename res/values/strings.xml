@@ -61,5 +61,10 @@
     <string name="seek_display_style">求购类别</string>
     <string name="seek_display_count">求购数量</string>
     <string name="seek_display_detail">求购描述</string>
+    <string name="search_button">搜索</string>
+    <string name="mainpage_button_sys">推荐</string>
+    <string name="mainpage_button_mov">动态</string>
+    <string name="title_activity_searching">SearchingAct</string>
+    <string name="title_activity_flow_page">FlowPageAct</string>
 
 </resources>

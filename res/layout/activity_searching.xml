@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+
+        <Spinner
+            android:id="@+id/searching_search_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true" />
+
+        <EditText
+            android:id="@+id/searching_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/searching_search_type"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/searching_search_type"
+            android:background="@drawable/login_text_shape"
+            android:ems="10"
+            android:inputType="text"
+            android:paddingLeft="28dp" />
+
+        <Button
+            android:id="@+id/searching_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/searching_editText"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/searching_editText"
+            android:background="@drawable/searchbuttonbac"
+            android:text="@string/search_button"
+            android:textColor="#ffffff"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@id/searching_editText"
+            android:layout_alignLeft="@id/searching_editText"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_launcher" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/searching_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+    <Button
+        android:id="@+id/delect_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="清除搜索历史" />
+
+</LinearLayout>

@@ -54,8 +54,8 @@ public class MainPageAct extends ActivityGroup {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
-				Intent intent = new Intent(MainPageAct.this, FxService.class);
-				startService(intent);
+				Intent intent = new Intent(MainPageAct.this, FlowPageAct.class);
+				startActivity(intent);
 
 			}
 		});

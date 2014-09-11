@@ -1,9 +1,17 @@
 package com.example.community;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnLastItemVisibleListener;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
+
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -20,10 +28,11 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MovementAct extends Activity {
     private List<Map<String, Object>> mData;
-
+    private PullToRefreshListView mPullRefreshListView;
 	
 	private List<Map<String, Object>> getData() {
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
@@ -177,15 +186,73 @@ public class MovementAct extends Activity {
 	}
 
     protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_movement);
-		mData = getData();
-		MyAdapter adapter = new MyAdapter(this);
-		ListView listview=(ListView)findViewById(R.id.movement_listview);
-		
-		listview.setAdapter(adapter);
-		setListViewHeightBasedOnChildren(listview);
+		 super.onCreate(savedInstanceState);
+		 setContentView(R.layout.activity_movement);
+		 mData = getData();
+		 MyAdapter adapter = new MyAdapter(this);
+		 mPullRefreshListView=(PullToRefreshListView)findViewById(R.id.moment_fresh_listview);
+		 ListView actualListView = mPullRefreshListView.getRefreshableView();
+		 mPullRefreshListView.setAdapter(adapter);
+		 setListViewHeightBasedOnChildren(actualListView);
+		 mPullRefreshListView.setMode(com.handmark.pulltorefresh.library.PullToRefreshBase.Mode.BOTH);
+		 mPullRefreshListView.setOnRefreshListener(new OnRefreshListener2<ListView>() {
+
+			@Override
+			public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+				// TODO Auto-generated method stub
+//				mListItems.removeAll(mListItems);
+//				mListItems.addAll(Arrays.asList(upOptions));
+//				arrayAdpt.notifyDataSetChanged();
+				System.out.println("onPullDownToRefresh");
+				Toast.makeText(MovementAct.this, "onPullDownToRefresh!", Toast.LENGTH_SHORT).show();
+				new GetDataTask().execute();
+			}
+
+			@Override
+			public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+				// TODO Auto-generated method stub
+//				mListItems.addAll(Arrays.asList(downOptions));
+//				arrayAdpt.notifyDataSetChanged();
+				System.out.println("onPullUpToRefresh");
+				Toast.makeText(MovementAct.this, "onPullUpToRefresh!", Toast.LENGTH_SHORT).show();
+				new GetDataTask().execute();
+			}
+		});
+		mPullRefreshListView.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
+
+			@Override
+			public void onLastItemVisible() {
+				Toast.makeText(MovementAct.this, "end!", Toast.LENGTH_SHORT).show();
+//				mListItems.add("new data from bottom");
+//				arrayAdpt.notifyDataSetChanged();
+			}
+		});
 	}
+    private class GetDataTask extends AsyncTask<Void, Void, String[]> {
+
+		@Override
+		protected String[] doInBackground(Void... params) {
+			// Simulates a background job.
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(String[] result) {
+//			mListItems.addFirst("new data from top");
+			
+
+			// Call onRefreshComplete when the list has been refreshed.
+			mPullRefreshListView.onRefreshComplete();
+
+			super.onPostExecute(result);
+		}
+	}
+
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

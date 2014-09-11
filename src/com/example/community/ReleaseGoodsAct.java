@@ -117,7 +117,7 @@ public class ReleaseGoodsAct extends Activity {
 	private void showDialog() {
 
 		new AlertDialog.Builder(this)
-				.setTitle("…Ë÷√Õ∑œÒ")
+				.setTitle("…Ë÷√Õº∆¨")
 				.setItems(items, new DialogInterface.OnClickListener() {
 
 					@Override

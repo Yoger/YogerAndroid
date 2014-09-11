@@ -184,6 +184,9 @@ public class ClassifyAct extends Activity {
 	    HashMap<String, Object> item=(HashMap<String, Object>) arg0.getItemAtPosition(arg2);  
 	    //显示所选Item的ItemText   
 	    setTitle((String)item.get("ItemText"));  
+	    
+	    Intent intent = new Intent(ClassifyAct.this,SoldingGoodsActivity.class);
+		startActivity(intent);
 	}  
 	       
    }
@@ -198,6 +201,10 @@ public class ClassifyAct extends Activity {
 		ls=(ListView)findViewById(R.id.classfy_listview);
 		ls.setAdapter(adapter);
 		
+		/*
+		 * 
+		 * 在刚进入分类界面  GridView初始化数据
+		 */
 		/*lstImageItem = new ArrayList<HashMap<String, Object>>();
 		for(int i=0;i<10;i++)  
 	      {  

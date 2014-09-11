@@ -66,5 +66,12 @@
     <string name="mainpage_button_mov">动态</string>
     <string name="title_activity_searching">SearchingAct</string>
     <string name="title_activity_flow_page">FlowPageAct</string>
+    <string name="title_activity_collect">CollectActivity</string>
+    <string name="title_activity_solding_goods">SoldingGoodsActivity</string>
+    <string name="title_activity_sold_goods">SoldGoodsActivity</string>
+    <string name="title_activity_checking_goods">CheckingGoodsActivity</string>
+    <string name="title_activity_given_up_goods">GivenUpGoodsActivity</string>
+    <string name="title_activity_seeking">SeekingActivity</string>
+    <string name="title_activity_checking_seek">CheckingSeekActivity</string>
 
 </resources>

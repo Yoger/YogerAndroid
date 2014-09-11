@@ -3,23 +3,22 @@ package com.example.community;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import com.example.community.ClassifyAct.MyListAdapter;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class ChooseClassifyAct extends Activity {   
     private List<String> mListData;
@@ -95,6 +94,44 @@ public class ChooseClassifyAct extends Activity {
 				public void onItemClick(AdapterView<?> arg0, View arg1,
 						int arg2, long arg3) {
 					// TODO Auto-generated method stub
+					switch(arg2){
+					case 0:
+						lstImageItem = new ArrayList<HashMap<String, Object>>();
+						for(int i=0;i<10;i++)  
+					      {  
+					        HashMap<String, Object> map = new HashMap<String, Object>();  
+					        map.put("ItemImage", R.drawable.bre);//添加图像资源的ID   
+					        map.put("ItemText", "NO."+String.valueOf(i));//按序号做ItemText   
+					        lstImageItem.add(map);  
+					      }  
+						setGridView1();
+						break;
+					case 1:
+						lstImageItem = new ArrayList<HashMap<String, Object>>();
+						for(int i=0;i<10;i++)  
+					      {  
+					        HashMap<String, Object> map = new HashMap<String, Object>();  
+					        map.put("ItemImage", R.drawable.lunch);//添加图像资源的ID   
+					        map.put("ItemText", "NO."+String.valueOf(i));//按序号做ItemText   
+					        lstImageItem.add(map);  
+					      } 
+						setGridView1();
+						break;
+						default:
+							lstImageItem = new ArrayList<HashMap<String, Object>>();
+							for(int i=0;i<10;i++)  
+						      {  
+						        HashMap<String, Object> map = new HashMap<String, Object>();  
+						        map.put("ItemImage", R.drawable.dinner);//添加图像资源的ID   
+						        map.put("ItemText", "NO."+String.valueOf(i));//按序号做ItemText   
+						        lstImageItem.add(map);  
+						      }
+							setGridView1();
+							break;
+							
+					}
+					
+				
 					
 				}
 		    	
@@ -105,6 +142,8 @@ public class ChooseClassifyAct extends Activity {
 	}
       
 /////gridview
+	
+	ArrayList<HashMap<String, Object>> lstImageItem = new ArrayList<HashMap<String, Object>>();
  public void setGridView1(){
 	  MyGridView gridview = (MyGridView) findViewById(R.id.choose_classify_gridView1);  
       ArrayList<HashMap<String, Object>> lstImageItem = new ArrayList<HashMap<String, Object>>();  
@@ -151,12 +190,37 @@ public class ChooseClassifyAct extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_choose_classify);
 		mListData = getListData();
 		MyListAdapter adapter = new MyListAdapter(this);
 		ls=(ListView)findViewById(R.id.choose_classfy_listview);
 		ls.setAdapter(adapter);
 		setGridView1();
+
+
+		Button btnBack = (Button) findViewById(R.id.TitleBackBtn);
+
+		btnBack.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				KeyEvent newEvent = new KeyEvent
+						(KeyEvent.ACTION_DOWN,
+						KeyEvent.KEYCODE_BACK);
+				onKeyDown(KeyEvent.KEYCODE_BACK, newEvent);
+			}
+		});
+	}
+	
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) 
+		{
+			// 按下的如果是BACK，同时没有重复
+			finish();
+
+			return true;
+		}
+
+		return super.onKeyDown(keyCode, event);
 	}
 
 

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F0F0"
     android:orientation="vertical" >
     
+  <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F0F0F0"
+    android:orientation="vertical" >
     <LinearLayout 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -118,7 +122,7 @@
     
     <ListView 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:id="@+id/dingDanManage"/>
     
      <ImageView
@@ -134,7 +138,7 @@
     
     <ListView 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:id="@+id/qiuGouManage"/>
     
     <Button 
@@ -146,3 +150,4 @@
     
     
  </LinearLayout>
+ </ScrollView>

@@ -87,10 +87,6 @@
             android:name=".ModifyInfoActivity"
             android:label="@string/title_activity_modify_info" >
         </activity>
-
-        <service android:name=".FxService" >
-        </service>
-
         <activity
             android:name=".NewsCountAct"
             android:label="@string/title_activity_news_count" >
@@ -117,8 +113,38 @@
             android:theme="@style/Transparent"
             android:label="@string/title_activity_flow_page" >
         </activity>
+        <activity
+            android:name=".CollectActivity"
+            android:label="@string/title_activity_collect" >
+        </activity>
+        <activity
+            android:name=".SoldingGoodsActivity"
+            android:label="@string/title_activity_solding_goods" >
+        </activity>
+        <activity
+            android:name=".SoldGoodsActivity"
+            android:label="@string/title_activity_sold_goods" >
+        </activity>
+        <activity
+            android:name=".CheckingGoodsActivity"
+            android:label="@string/title_activity_checking_goods" >
+        </activity>
+        <activity
+            android:name=".GivenUpGoodsActivity"
+            android:label="@string/title_activity_given_up_goods" >
+        </activity>
+        <activity
+            android:name=".SeekingActivity"
+            android:label="@string/title_activity_seeking" >
+        </activity>
+        <activity
+            android:name=".CheckingSeekActivity"
+            android:label="@string/title_activity_checking_seek" >
+        </activity>
+        
     </application>
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
 </manifest>
+

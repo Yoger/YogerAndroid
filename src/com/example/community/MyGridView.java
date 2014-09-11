@@ -1,4 +1,4 @@
-package com.example.community;
+﻿package com.example.community;
 
 import android.content.Context;
 import android.util.AttributeSet;

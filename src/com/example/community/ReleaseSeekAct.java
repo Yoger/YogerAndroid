@@ -1,4 +1,4 @@
-package com.example.community;
+ï»¿package com.example.community;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -17,6 +17,18 @@ public class ReleaseSeekAct extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_release_seek);
+		
+		Button register_commite=(Button) findViewById(R.id.button_register_commite);
+		
+		register_commite.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+			
+		});
 
 		Button btnBack = (Button) findViewById(R.id.TitleBackBtn);
 
@@ -33,7 +45,7 @@ public class ReleaseSeekAct extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) 
 		{
-			// °´ÏÂµÄÈç¹ûÊÇBACK£¬Í¬Ê±Ã»ÓĞÖØ¸´
+			// æŒ‰ä¸‹çš„å¦‚æœæ˜¯BACKï¼ŒåŒæ—¶æ²¡æœ‰é‡å¤
 			finish();
 
 			return true;

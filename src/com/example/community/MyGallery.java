@@ -1,4 +1,4 @@
-package com.example.community;
+﻿package com.example.community;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.widget.Gallery;
 
 /**
- * 鑷畾涔夌敾寤婏紝瀹炵幇涓�娆″彧婊戝姩涓�寮犲浘鐗囷紝鏃犳儻鎬�
+ * 阏奉亜鐣炬稊澶屾暰瀵ゅ绱濈€圭偟骞囨稉锟藉▎钬冲涧濠婃垵濮╂稉锟藉钟叉禈阎楀浄绱濋弮钟冲劵阉拷
  * 
  * @author Feng
  * 
@@ -38,7 +38,7 @@ class MyGallery extends Gallery {
 		}
 		onKeyDown(kEvent, null);
 
-		if (this.getSelectedItemPosition() == 0) {// 瀹炵幇鍚庨��鍔熻兘
+		if (this.getSelectedItemPosition() == 0) {// 鐎圭偟骞囬崥搴拷锟介崝镡诲厣
 			this.setSelection(recommendAct.picture.length);
 		}
 		return false;

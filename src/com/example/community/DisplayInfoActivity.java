@@ -1,17 +1,21 @@
-package com.example.community;
+ï»¿package com.example.community;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 public class DisplayInfoActivity extends Activity {
 
@@ -20,7 +24,7 @@ public class DisplayInfoActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_display_info);
    
-      //°ó¶¨XMLÖĞµÄListView£¬×÷ÎªItemµÄÈİÆ÷  
+      //ç»‘å®šXMLä¸­çš„ListViewï¼Œä½œä¸ºItemçš„å®¹å™¨  
         ListView soldAndQiuGou = (ListView) findViewById(R.id.soldAndQiuGou); 
         Button talkToHeButton = (Button) findViewById(R.id.talkToHeButton);
         Button focusHeORButton = (Button) findViewById(R.id.focusHeORButton);
@@ -28,31 +32,52 @@ public class DisplayInfoActivity extends Activity {
         talkToHeButton.setOnClickListener(new talkToHeButtonListener());
         focusHeORButton.setOnClickListener(new focusHeORButtonListener());
           
-        //Éú³É¶¯Ì¬Êı×é£¬²¢ÇÒ×ªÔØÊı¾İ  
+        //ç”ŸæˆåŠ¨æ€æ•°ç»„ï¼Œå¹¶ä¸”è½¬è½½æ•°æ®  
         ArrayList<HashMap<String, Object>> soldAndQiuGouList = new ArrayList<HashMap<String, Object>>();  
          
         HashMap<String, Object> map1 = new HashMap<String, Object>();  
         map1.put("ItemImage", R.drawable.no_pic);  
-        map1.put("ItemTitle", "ÕıÔÚ³öÊÛ");  
+        map1.put("ItemTitle", "æ­£åœ¨å‡ºå”®");  
         soldAndQiuGouList.add(map1);  
         
         HashMap<String, Object> map2 = new HashMap<String, Object>();
         map2.put("ItemImage", R.drawable.no_pic);  
-        map2.put("ItemTitle", "ÕıÔÚÇó¹º");  
+        map2.put("ItemTitle", "æ­£åœ¨æ±‚è´­");  
         soldAndQiuGouList.add(map2);
         
-        //Éú³ÉÊÊÅäÆ÷£¬Êı×é===¡·ListItem  
-        SimpleAdapter soldAndQiuGouSchedule = new SimpleAdapter(this, //Ã»Ê²Ã´½âÊÍ  
-        		                                    soldAndQiuGouList,//Êı¾İÀ´Ô´   
-                                                    R.layout.ding_dan_manage,//ListItemµÄXMLÊµÏÖ  
+        //ç”Ÿæˆé€‚é…å™¨ï¼Œæ•°ç»„===ã€‹ListItem  
+        SimpleAdapter soldAndQiuGouSchedule = new SimpleAdapter(this, //æ²¡ä»€ä¹ˆè§£é‡Š  
+        		                                    soldAndQiuGouList,//æ•°æ®æ¥æº   
+                                                    R.layout.ding_dan_manage,//ListItemçš„XMLå®ç°  
                                                       
-                                                    //¶¯Ì¬Êı×éÓëListItem¶ÔÓ¦µÄ×ÓÏî          
+                                                    //åŠ¨æ€æ•°ç»„ä¸ListItemå¯¹åº”çš„å­é¡¹          
                                                     new String[] {"ItemImage", "ItemTitle"},   
                                                       
-                                                    //ListItemµÄXMLÎÄ¼şÀïÃæµÄÁ½¸öTextView ID  
+                                                    //ListItemçš„XMLæ–‡ä»¶é‡Œé¢çš„ä¸¤ä¸ªTextView ID  
                                                     new int[] {R.id.ItemImage,R.id.ItemTitle});  
-        //Ìí¼Ó²¢ÇÒÏÔÊ¾  
+        //æ·»åŠ å¹¶ä¸”æ˜¾ç¤º  
         soldAndQiuGou.setAdapter(soldAndQiuGouSchedule); 
+        
+        soldAndQiuGou.setOnItemClickListener(new OnItemClickListener(){
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				switch(position)
+				{
+				case 0:
+					intent = new Intent(DisplayInfoActivity.this,SoldingGoodsActivity.class);
+					startActivity(intent);
+					break;
+				case 1:
+					intent = new Intent(DisplayInfoActivity.this,SeekingActivity.class);
+					startActivity(intent);
+					break;
+				}
+			}
+        });
 
 
         Button btnBack = (Button) findViewById(R.id.TitleBackBtn);
@@ -70,7 +95,7 @@ public class DisplayInfoActivity extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) 
 		{
-			// °´ÏÂµÄÈç¹ûÊÇBACK£¬Í¬Ê±Ã»ÓĞÖØ¸´
+			// æŒ‰ä¸‹çš„å¦‚æœæ˜¯BACKï¼ŒåŒæ—¶æ²¡æœ‰é‡å¤
 			finish();
 
 			return true;
@@ -84,7 +109,8 @@ public class DisplayInfoActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			
+			Intent intent = new Intent(DisplayInfoActivity.this,NewsCountAct.class);
+			startActivity(intent);
 		}
     	
     }
@@ -94,7 +120,7 @@ public class DisplayInfoActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			
+			Toast.makeText(getApplicationContext(), "æˆ‘æ˜¯å…³æ³¨äº†ï¼Ÿã€‚ã€‚è¿˜æ˜¯æ²¡æœ‰", Toast.LENGTH_SHORT).show();
 		}
     	
     }

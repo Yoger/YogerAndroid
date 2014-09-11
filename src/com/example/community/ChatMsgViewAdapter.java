@@ -1,4 +1,4 @@
-
+﻿
 package com.example.community;
 
 import android.R.integer;

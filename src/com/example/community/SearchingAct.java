@@ -1,4 +1,4 @@
-package com.example.community;
+ï»¿package com.example.community;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -33,7 +33,7 @@ public class SearchingAct extends Activity {
 	    
 
 	    
-	    private String[] searchTypeArray = new String[] {"ÉÌÆ·","·şÎñ","ÓÃ»§"};
+	    private String[] searchTypeArray = new String[] {"å•†å“","æœåŠ¡","ç”¨æˆ·"};
 
 	    
 	    private ListView mylistview = null;
@@ -58,7 +58,7 @@ public class SearchingAct extends Activity {
 				@Override
 				public void onItemSelected(AdapterView<?> arg0, View arg1,
 						int arg2, long arg3) {
-					// TODO Auto-generated method stub   arg2Îªµ±Ç°Ñ¡Ïî 0-2
+					// TODO Auto-generated method stub   arg2ä¸ºå½“å‰é€‰é¡¹ 0-2
 				
 				}
 	         });
@@ -80,7 +80,7 @@ public class SearchingAct extends Activity {
  	        	histories = longhistory.split(",");  
  	        }
 	        
-	        // Ö»±£Áô×î½üµÄ50ÌõµÄ¼ÇÂ¼  
+	        // åªä¿ç•™æœ€è¿‘çš„50æ¡çš„è®°å½•  
 	        if (histories.length > 50) {  
 	            String[] newHistories = new String[50];  
 	            System.arraycopy(histories, 0, newHistories, 0, 50);  
@@ -187,7 +187,7 @@ public class SearchingAct extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) 
 		{
-			// °´ÏÂµÄÈç¹ûÊÇBACK£¬Í¬Ê±Ã»ÓĞÖØ¸´
+			// æŒ‰ä¸‹çš„å¦‚æœæ˜¯BACKï¼ŒåŒæ—¶æ²¡æœ‰é‡å¤
 			finish();
 
 			return true;

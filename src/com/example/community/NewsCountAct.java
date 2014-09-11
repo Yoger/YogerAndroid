@@ -1,4 +1,4 @@
-package com.example.community;
+﻿package com.example.community;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ public class NewsCountAct extends Activity {
 	        requestWindowFeature(Window.FEATURE_NO_TITLE);
 	        setContentView(R.layout.activity_focus);
 	   
-	      //°ó¶¨XMLÖÐµÄListView£¬×÷ÎªItemµÄÈÝÆ÷  
+	      //掳贸露篓XML脰脨碌胫ListView拢卢脳梅脦陋Item碌胫脠脻脝梅  
 	        ListView focusListView = (ListView) findViewById(R.id.focusListView); 
 	       
 	          focusListView.setOnItemClickListener(new OnItemClickListener() {
@@ -44,24 +44,24 @@ public class NewsCountAct extends Activity {
 	         
 	        HashMap<String, Object> map1 = new HashMap<String, Object>();  
 	        map1.put("ItemImage", R.drawable.no_pic);  
-	        map1.put("ItemTitle", "ÕÅÈý");  
+	        map1.put("ItemTitle", "小布");  
 	        focusList.add(map1);  
 	        
 	        HashMap<String, Object> map2 = new HashMap<String, Object>();  
 	        map2.put("ItemImage", R.drawable.no_pic);  
-	        map2.put("ItemTitle", "ÀîËÄ");  
+	        map2.put("ItemTitle", "胖子");  
 	        focusList.add(map2);
 	        
 	        SimpleAdapter focusListSchedule = new SimpleAdapter(this, 
 	        		                                    focusList,
-	                                                    R.layout.ding_dan_manage,//ListItemµÄXMLÊµÏÖ  
+	                                                    R.layout.ding_dan_manage,//ListItem碌胫XML脢碌睃脰  
 	                                                      
-	                                                    //¶¯Ì¬Êý×éÓëListItem¶ÔÓ¦µÄ×ÓÏî          
+	                                                    //露炉脤卢脢媒脳茅脱毛ListItem露脭脱娄碌胫脳脱睃卯          
 	                                                    new String[] {"ItemImage", "ItemTitle"},   
 	                                                      
-	                                                    //ListItemµÄXMLÎÄ¼þÀïÃæµÄÁ½¸öTextView ID  
+	                                                    //ListItem碌胫XML脦胫录镁脌茂脙忙碌胫脕陆赂枚TextView ID  
 	                                                    new int[] {R.id.ItemImage,R.id.ItemTitle});  
-	        //Ìí¼Ó²¢ÇÒÏÔÊ¾  
+	        //脤铆录脱虏垄脟脪睃脭脢戮  
 	        focusListView.setAdapter(focusListSchedule); 
 	    
 	        
@@ -80,7 +80,7 @@ public class NewsCountAct extends Activity {
 		public boolean onKeyDown(int keyCode, KeyEvent event) {
 			if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) 
 			{
-				// ���µ������BACK��ͬʱû���ظ�
+				// 按下的如果是BACK，同时没有重复
 				finish();
 
 				return true;

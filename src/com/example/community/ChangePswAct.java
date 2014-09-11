@@ -1,4 +1,4 @@
-package com.example.community;
+ï»¿package com.example.community;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -43,7 +43,7 @@ public class ChangePswAct extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) 
 		{
-			// °´ÏÂµÄÈç¹ûÊÇBACK£¬Í¬Ê±Ã»ÓĞÖØ¸´
+			// æŒ‰ä¸‹çš„å¦‚æœæ˜¯BACKï¼ŒåŒæ—¶æ²¡æœ‰é‡å¤
 			finish();
 
 			return true;

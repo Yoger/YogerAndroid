@@ -1,4 +1,4 @@
-package com.example.community;
+﻿package com.example.community;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -163,7 +163,7 @@ public class MovementAct extends Activity {
 		}
 		
 	}
-///scroll Ƕ�� listview	
+///scroll 嵌套 listview	
 	public void setListViewHeightBasedOnChildren(ListView listView) {
 		ListAdapter listAdapter = listView.getAdapter();
 		if (listAdapter == null)

@@ -19,6 +19,7 @@
             android:orientation="horizontal"
            > 
       <LinearLayout 
+        android:id="@+id/collect_goods"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -35,6 +36,7 @@
             android:text="@string/sales_display_button_collect"/>
     </LinearLayout>
         <LinearLayout 
+        android:id="@+id/share_goods"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -51,6 +53,7 @@
             android:text="@string/sales_display_button_share"/>
     </LinearLayout>
       <LinearLayout 
+        android:id="@+id/message_goods"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -68,10 +71,6 @@
     </LinearLayout>
    </LinearLayout>
               <!-- 第一个LinearLayout 存放商品名称等基本信息 -->
-=======
-
-     
->>>>>>> cz
     <LinearLayout
         android:id="@+id/GoodsDetail_GoodsLine"
         android:layout_width="match_parent"

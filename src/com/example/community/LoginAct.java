@@ -1,4 +1,4 @@
-package com.example.community;
+ï»¿package com.example.community;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -52,7 +52,7 @@ public class LoginAct extends Activity {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) 
 
 {
-			// °´ÏÂµÄÈç¹ûÊÇBACK£¬Í¬Ê±Ã»ÓĞÖØ¸´
+			// æŒ‰ä¸‹çš„å¦‚æœæ˜¯BACKï¼ŒåŒæ—¶æ²¡æœ‰é‡å¤
 			askForOut();
 
 			return true;
@@ -64,14 +64,14 @@ public class LoginAct extends Activity {
 	private void askForOut() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-		builder.setTitle("È·¶¨ÍË³ö").setMessage("È·¶¨ÍË³ö£¿").setPositiveButton("È·¶¨",
+		builder.setTitle("ç¡®å®šé€€å‡º").setMessage("ç¡®å®šé€€å‡ºï¼Ÿ").setPositiveButton("ç¡®å®š",
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, 
 							int which) {
 						finish();
 					}
-				}).setNegativeButton("È¡Ïû",
+				}).setNegativeButton("å–æ¶ˆ",
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, 

@@ -1,4 +1,4 @@
-package com.example.community;
+ï»¿package com.example.community;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -309,7 +309,7 @@ private PullToRefreshListView mPullRefreshListView;
 
 
 	/**
-	 * ×Ô¶¨ÒåÍ¼Æ¬ÏÔÊ¾ÊÊÅäÆ÷
+	 * è‡ªå®šä¹‰å›¾ç‰‡æ˜¾ç¤ºé€‚é…å™¨
 	 * 
 	 */
 	class ImageAdapter extends BaseAdapter {

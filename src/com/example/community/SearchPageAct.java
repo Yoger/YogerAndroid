@@ -1,4 +1,4 @@
-package com.example.community;
+ï»¿package com.example.community;
 
 
 import java.util.ArrayList;
@@ -33,8 +33,8 @@ public class SearchPageAct extends Activity {
     ArrayAdapter<String> searchTypeAdapter = null; 
     ArrayAdapter<String> selectTypeAdapter = null; 
     
-    private String[] searchTypeArray = new String[] {"ÉÌÆ·","·şÎñ","ÓÃ»§"};
-    private String[] selectTypeArray = new String[] {"×ÛºÏÅÅĞò","¼Û¸ñÅÅĞò","Ê±¼äÅÅĞò"};
+    private String[] searchTypeArray = new String[] {"å•†å“","æœåŠ¡","ç”¨æˆ·"};
+    private String[] selectTypeArray = new String[] {"ç»¼åˆæ’åº","ä»·æ ¼æ’åº","æ—¶é—´æ’åº"};
     
     private ListView mylistview = null;
 	private List<Map<String,Object>>  mData;
@@ -58,7 +58,7 @@ public class SearchPageAct extends Activity {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
-				// TODO Auto-generated method stub   arg2Îªµ±Ç°Ñ¡Ïî 0-2
+				// TODO Auto-generated method stub   arg2ä¸ºå½“å‰é€‰é¡¹ 0-2
 			
 			}
          });
@@ -70,7 +70,7 @@ public class SearchPageAct extends Activity {
     	selectTypeAdapter = new ArrayAdapter<String>(SearchPageAct.this,
                 android.R.layout.simple_spinner_item, selectTypeArray);
     	selectType.setAdapter(selectTypeAdapter);
-    	selectType.setSelection(0,true);  //ÉèÖÃÄ¬ÈÏÑ¡ÖĞÏî£¬´Ë´¦ÎªÄ¬ÈÏÑ¡ÖĞµÚ4¸öÖµ
+    	selectType.setSelection(0,true);  //è®¾ç½®é»˜è®¤é€‰ä¸­é¡¹ï¼Œæ­¤å¤„ä¸ºé»˜è®¤é€‰ä¸­ç¬¬4ä¸ªå€¼
     	searchType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
             @Override
@@ -93,52 +93,52 @@ public class SearchPageAct extends Activity {
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("name", "ÉÌÆ·Ãû³Æ");
+		map.put("name", "å•†å“åç§°");
 		map.put("img", R.drawable.no_pic);
-		map.put("price", "£¤50");
-		map.put("point", "µãÔŞÊı£º60");
+		map.put("price", "ï¿¥50");
+		map.put("point", "ç‚¹èµæ•°ï¼š60");
 		list.add(map);
 
 		map = new HashMap<String, Object>();
-		map.put("name", "ÉÌÆ·Ãû³Æ");
+		map.put("name", "å•†å“åç§°");
 		map.put("img", R.drawable.no_pic);
-		map.put("price", "£¤50");
-		map.put("point", "µãÔŞÊı£º60");
+		map.put("price", "ï¿¥50");
+		map.put("point", "ç‚¹èµæ•°ï¼š60");
 		list.add(map);
 
 		map = new HashMap<String, Object>();
-		map.put("name", "ÉÌÆ·Ãû³Æ");
+		map.put("name", "å•†å“åç§°");
 		map.put("img", R.drawable.no_pic);
-		map.put("price", "£¤50");
-		map.put("point", "µãÔŞÊı£º60");
+		map.put("price", "ï¿¥50");
+		map.put("point", "ç‚¹èµæ•°ï¼š60");
 		list.add(map);
 		
 		map = new HashMap<String, Object>();
-		map.put("name", "ÉÌÆ·Ãû³Æ");
+		map.put("name", "å•†å“åç§°");
 		map.put("img", R.drawable.no_pic);
-		map.put("price", "£¤50");
-		map.put("point", "µãÔŞÊı£º60");
+		map.put("price", "ï¿¥50");
+		map.put("point", "ç‚¹èµæ•°ï¼š60");
 		list.add(map);
 		
 		map = new HashMap<String, Object>();
-		map.put("name", "ÉÌÆ·Ãû³Æ");
+		map.put("name", "å•†å“åç§°");
 		map.put("img", R.drawable.no_pic);
-		map.put("price", "£¤50");
-		map.put("point", "µãÔŞÊı£º60");
+		map.put("price", "ï¿¥50");
+		map.put("point", "ç‚¹èµæ•°ï¼š60");
 		list.add(map);
 		
 		map = new HashMap<String, Object>();
-		map.put("name", "ÉÌÆ·Ãû³Æ");
+		map.put("name", "å•†å“åç§°");
 		map.put("img", R.drawable.no_pic);
-		map.put("price", "£¤50");
-		map.put("point", "µãÔŞÊı£º60");
+		map.put("price", "ï¿¥50");
+		map.put("point", "ç‚¹èµæ•°ï¼š60");
 		list.add(map);
 		
 		map = new HashMap<String, Object>();
-		map.put("name", "ÉÌÆ·Ãû³Æ");
+		map.put("name", "å•†å“åç§°");
 		map.put("img", R.drawable.no_pic);
-		map.put("price", "£¤50");
-		map.put("point", "µãÔŞÊı£º60");
+		map.put("price", "ï¿¥50");
+		map.put("point", "ç‚¹èµæ•°ï¼š60");
 		list.add(map);
 		
 		return list;
@@ -226,7 +226,7 @@ public class SearchPageAct extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) 
 		{
-			// °´ÏÂµÄÈç¹ûÊÇBACK£¬Í¬Ê±Ã»ÓĞÖØ¸´
+			// æŒ‰ä¸‹çš„å¦‚æœæ˜¯BACKï¼ŒåŒæ—¶æ²¡æœ‰é‡å¤
 			finish();
 
 			return true;

@@ -1,4 +1,4 @@
-package com.example.community;
+ï»¿package com.example.community;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -36,6 +36,7 @@ public class ReleaseGoodsAct extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_release_goods);
 		Button choose_style=(Button)findViewById(R.id.button_release_style);
+		Button register_commite=(Button)findViewById(R.id.button_register_commite);
 		choose_style.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -45,14 +46,36 @@ public class ReleaseGoodsAct extends Activity {
 				startActivity(intent);
 			}
 		});
+		
+		register_commite.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+			
+		});
 
 		
 		goodsImage = (ImageView) findViewById(R.id.goodsRelease_GoodsPic);
+		
 		Button uploadGoodsImageBtn = (Button) findViewById(R.id.GoodsRelease_GoodsPhoto);
 		
 		uploadGoodsImageBtn.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				showDialog();
+			}
+		});
+		
+		Button GoodsDetailPhotoBtn = (Button) findViewById(R.id.GoodsRelease_GoodsDetailPhoto);
+		
+		GoodsDetailPhotoBtn.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 		
@@ -71,7 +94,7 @@ public class ReleaseGoodsAct extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) 
 		{
-			// °´ÏÂµÄÈç¹ûÊÇBACK£¬Í¬Ê±Ã»ÓĞÖØ¸´
+			// æŒ‰ä¸‹çš„å¦‚æœæ˜¯BACKï¼ŒåŒæ—¶æ²¡æœ‰é‡å¤
 			finish();
 
 			return true;
@@ -87,37 +110,29 @@ public class ReleaseGoodsAct extends Activity {
 		return true;
 	}
 	
-	/******Í·ÏñÉèÖÃ*****/
+	/******å¤´åƒè®¾ç½®*****/
     
     
-    /* ×é¼ş */
+    /* ç»„ä»¶ */
 
-	private String[] items = new String[] { "Ñ¡Ôñ±¾µØÍ¼Æ¬", "ÅÄÕÕ" };
-	/* Í·ÏñÃû³Æ */
+	private String[] items = new String[] { "é€‰æ‹©æœ¬åœ°å›¾ç‰‡", "æ‹ç…§" };
+	/* å¤´åƒåç§° */
 	private static final String IMAGE_FILE_NAME = "goodsImage.jpg";
-	/*²Ã¼ôÖ®ºóÍ·ÏñÄ¬ÈÏÃû³Æ*/
+	/*è£å‰ªä¹‹åå¤´åƒé»˜è®¤åç§°*/
 	private static final String IMAGE_AVATAR = "avatarGoods.jpg";
 
-	/* ÇëÇóÂë */
+	/* è¯·æ±‚ç  */
 	private static final int IMAGE_REQUEST_CODE = 0;
 	private static final int CAMERA_REQUEST_CODE = 1;
 	private static final int RESULT_REQUEST_CODE = 2;
 
-	private View.OnClickListener listener = new View.OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-			showDialog();
-		}
-	};
-
 	/**
-	 * ÏÔÊ¾Ñ¡Ôñ¶Ô»°¿ò
+	 * æ˜¾ç¤ºé€‰æ‹©å¯¹è¯æ¡†
 	 */
 	private void showDialog() {
 
 		new AlertDialog.Builder(this)
-				.setTitle("ÉèÖÃÍ¼Æ¬")
+				.setTitle("è®¾ç½®å›¾ç‰‡")
 				.setItems(items, new DialogInterface.OnClickListener() {
 
 					@Override
@@ -125,7 +140,7 @@ public class ReleaseGoodsAct extends Activity {
 						switch (which) {
 						case 0:
 							Intent intentFromGallery = new Intent();
-							intentFromGallery.setType("image/*"); // ÉèÖÃÎÄ¼şÀàĞÍ
+							intentFromGallery.setType("image/*"); // è®¾ç½®æ–‡ä»¶ç±»å‹
 							intentFromGallery
 									.setAction(Intent.ACTION_GET_CONTENT);
 							startActivityForResult(intentFromGallery,
@@ -135,7 +150,7 @@ public class ReleaseGoodsAct extends Activity {
 
 							Intent intentFromCapture = new Intent(
 									MediaStore.ACTION_IMAGE_CAPTURE);
-							// ÅĞ¶Ï´æ´¢¿¨ÊÇ·ñ¿ÉÒÔÓÃ£¬¿ÉÓÃ½øĞĞ´æ´¢
+							// åˆ¤æ–­å­˜å‚¨å¡æ˜¯å¦å¯ä»¥ç”¨ï¼Œå¯ç”¨è¿›è¡Œå­˜å‚¨
 							if (Tools.hasSdcard()) {
 
 								intentFromCapture.putExtra(
@@ -151,7 +166,7 @@ public class ReleaseGoodsAct extends Activity {
 						}
 					}
 				})
-				.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+				.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -163,7 +178,7 @@ public class ReleaseGoodsAct extends Activity {
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		//½á¹ûÂë²»µÈÓÚÈ¡ÏûÊ±ºò
+		//ç»“æœç ä¸ç­‰äºå–æ¶ˆæ—¶å€™
 		if (resultCode != RESULT_CANCELED) {
 
 			switch (requestCode) {
@@ -177,7 +192,7 @@ public class ReleaseGoodsAct extends Activity {
 									+ "/" +  IMAGE_FILE_NAME);
 					startPhotoZoom(Uri.fromFile(tempFile));
 				} else {
-					Toast.makeText(ReleaseGoodsAct.this, "Î´ÕÒµ½´æ´¢¿¨£¬ÎŞ·¨´æ´¢ÕÕÆ¬£¡",
+					Toast.makeText(ReleaseGoodsAct.this, "æœªæ‰¾åˆ°å­˜å‚¨å¡ï¼Œæ— æ³•å­˜å‚¨ç…§ç‰‡ï¼",
 							Toast.LENGTH_LONG).show();
 				}
 
@@ -193,7 +208,7 @@ public class ReleaseGoodsAct extends Activity {
 	}
 
 	/**
-	 * ²Ã¼ôÍ¼Æ¬·½·¨ÊµÏÖ
+	 * è£å‰ªå›¾ç‰‡æ–¹æ³•å®ç°
 	 * 
 	 * @param uri
 	 */
@@ -201,12 +216,12 @@ public class ReleaseGoodsAct extends Activity {
 
 		Intent intent = new Intent("com.android.camera.action.CROP");
 		intent.setDataAndType(uri, "image/*");
-		// ÉèÖÃ²Ã¼ô
+		// è®¾ç½®è£å‰ª
 		intent.putExtra("crop", "true");
-		// aspectX aspectY ÊÇ¿í¸ßµÄ±ÈÀı
+		// aspectX aspectY æ˜¯å®½é«˜çš„æ¯”ä¾‹
 		intent.putExtra("aspectX", 1);
 		intent.putExtra("aspectY", 1);
-		// outputX outputY ÊÇ²Ã¼ôÍ¼Æ¬¿í¸ß
+		// outputX outputY æ˜¯è£å‰ªå›¾ç‰‡å®½é«˜
 		intent.putExtra("outputX", 320);
 		intent.putExtra("outputY", 320);
 		intent.putExtra("return-data", true);
@@ -214,7 +229,7 @@ public class ReleaseGoodsAct extends Activity {
 	}
 
 	/**
-	 * ±£´æ²Ã¼ôÖ®ºóµÄÍ¼Æ¬Êı¾İ
+	 * ä¿å­˜è£å‰ªä¹‹åçš„å›¾ç‰‡æ•°æ®
 	 * 
 	 * @param picdata
 	 */

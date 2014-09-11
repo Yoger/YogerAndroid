@@ -1,4 +1,4 @@
-package com.example.community;
+ï»¿package com.example.community;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,7 +55,7 @@ public class SoldingGoodsActivity extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) 
 		{
-			// °´ÏÂµÄÈç¹ûÊÇBACK£¬Í¬Ê±Ã»ÓĞÖØ¸´
+			// æŒ‰ä¸‹çš„å¦‚æœæ˜¯BACKï¼ŒåŒæ—¶æ²¡æœ‰é‡å¤
 			finish();
 
 			return true;
@@ -110,9 +110,9 @@ public class SoldingGoodsActivity extends Activity {
 
 	public void showInfo(){
 		new AlertDialog.Builder(this)
-		.setTitle("ÎÒµÄlistview")
-		.setMessage("½éÉÜ...")
-		.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		.setTitle("æˆ‘çš„listview")
+		.setMessage("ä»‹ç»...")
+		.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 			}
@@ -149,7 +149,7 @@ public class SoldingGoodsActivity extends Activity {
 	public class MyAdapter extends BaseAdapter{
 		
 		
-		//LayoutInflater ÓÃÓÚÒ»¸öÃ»ÓĞ±»ÔØÈëµÄ½çÃæµÄÔØÈë
+		//LayoutInflater ç”¨äºä¸€ä¸ªæ²¡æœ‰è¢«è½½å…¥çš„ç•Œé¢çš„è½½å…¥
 		private LayoutInflater mInflater;
 		public MyAdapter(Context context){
 			this.mInflater = LayoutInflater.from(context);
@@ -178,7 +178,7 @@ public class SoldingGoodsActivity extends Activity {
 			
 			ViewHolder holder = null;
 			
-			//Èç¹ûµ±Ç°ViewÖĞÃ»ÓÃholder ĞÂ½¨²¢³õÊ¼»¯
+			//å¦‚æœå½“å‰Viewä¸­æ²¡ç”¨holder æ–°å»ºå¹¶åˆå§‹åŒ–
 			if (convertView == null){
 				holder = new ViewHolder();
 				convertView = mInflater.inflate(R.layout.makemoney_list, null);

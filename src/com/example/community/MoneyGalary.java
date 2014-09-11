@@ -1,4 +1,4 @@
-package com.example.community;
+﻿package com.example.community;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -32,7 +32,7 @@ public class MoneyGalary extends Gallery {
 		}
 		onKeyDown(kEvent, null);
 
-		if (this.getSelectedItemPosition() == 0) {// 瀹炵幇鍚庨��鍔熻兘
+		if (this.getSelectedItemPosition() == 0) {// 鐎圭偟骞囬崥搴拷锟介崝镡诲厣
 			this.setSelection(recommendAct.picture.length);
 		}
 		return false;

@@ -1,4 +1,4 @@
-package com.example.community;
+ï»¿package com.example.community;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,9 +38,9 @@ public class ClassifyAct extends Activity {
 		
 		private List<String> getListData() {
 			List<String> list = new ArrayList<String>();
-            list.add("ÒÂ·ş");
-            list.add("¿ã×Ó");
-            list.add("½»Í¨¹¤¾ß");
+            list.add("è¡£æœ");
+            list.add("è£¤å­");
+            list.add("äº¤é€šå·¥å…·");
             list.add("1");
             list.add("2");
             list.add("3");
@@ -113,8 +113,8 @@ public class ClassifyAct extends Activity {
 							for(int i=0;i<10;i++)  
 						      {  
 						        HashMap<String, Object> map = new HashMap<String, Object>();  
-						        map.put("ItemImage", R.drawable.bre);//Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID   
-						        map.put("ItemText", "NO."+String.valueOf(i));//°´ĞòºÅ×öItemText   
+						        map.put("ItemImage", R.drawable.bre);//æ·»åŠ å›¾åƒèµ„æºçš„ID   
+						        map.put("ItemText", "NO."+String.valueOf(i));//æŒ‰åºå·åšItemText   
 						        lstImageItem.add(map);  
 						      }  
 							setGridView1();
@@ -124,8 +124,8 @@ public class ClassifyAct extends Activity {
 							for(int i=0;i<10;i++)  
 						      {  
 						        HashMap<String, Object> map = new HashMap<String, Object>();  
-						        map.put("ItemImage", R.drawable.lunch);//Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID   
-						        map.put("ItemText", "NO."+String.valueOf(i));//°´ĞòºÅ×öItemText   
+						        map.put("ItemImage", R.drawable.lunch);//æ·»åŠ å›¾åƒèµ„æºçš„ID   
+						        map.put("ItemText", "NO."+String.valueOf(i));//æŒ‰åºå·åšItemText   
 						        lstImageItem.add(map);  
 						      } 
 							setGridView1();
@@ -135,8 +135,8 @@ public class ClassifyAct extends Activity {
 								for(int i=0;i<10;i++)  
 							      {  
 							        HashMap<String, Object> map = new HashMap<String, Object>();  
-							        map.put("ItemImage", R.drawable.dinner);//Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID   
-							        map.put("ItemText", "NO."+String.valueOf(i));//°´ĞòºÅ×öItemText   
+							        map.put("ItemImage", R.drawable.dinner);//æ·»åŠ å›¾åƒèµ„æºçš„ID   
+							        map.put("ItemText", "NO."+String.valueOf(i));//æŒ‰åºå·åšItemText   
 							        lstImageItem.add(map);  
 							      }
 								setGridView1();
@@ -159,17 +159,17 @@ public class ClassifyAct extends Activity {
 		ArrayList<HashMap<String, Object>> lstImageItem = new ArrayList<HashMap<String, Object>>();  
 	 public void setGridView1(){
 		  MyGridView gridview = (MyGridView) findViewById(R.id.classify_gridView1);  
-	      //Éú³ÉÊÊÅäÆ÷µÄImageItem <====> ¶¯Ì¬Êı×éµÄÔªËØ£¬Á½ÕßÒ»Ò»¶ÔÓ¦   
-	      SimpleAdapter saImageItems = new SimpleAdapter(this, //Ã»Ê²Ã´½âÊÍ   
-	                                                lstImageItem,//Êı¾İÀ´Ô´    
-	                                                R.layout.gridview,//night_itemµÄXMLÊµÏÖ   
-	                                                 //¶¯Ì¬Êı×éÓëImageItem¶ÔÓ¦µÄ×ÓÏî           
+	      //ç”Ÿæˆé€‚é…å™¨çš„ImageItem <====> åŠ¨æ€æ•°ç»„çš„å…ƒç´ ï¼Œä¸¤è€…ä¸€ä¸€å¯¹åº”   
+	      SimpleAdapter saImageItems = new SimpleAdapter(this, //æ²¡ä»€ä¹ˆè§£é‡Š   
+	                                                lstImageItem,//æ•°æ®æ¥æº    
+	                                                R.layout.gridview,//night_itemçš„XMLå®ç°   
+	                                                 //åŠ¨æ€æ•°ç»„ä¸ImageItemå¯¹åº”çš„å­é¡¹           
 	                                                new String[] {"ItemImage","ItemText"},   
-	                                                 //ImageItemµÄXMLÎÄ¼şÀïÃæµÄÒ»¸öImageView,Á½¸öTextView ID   
+	                                                 //ImageItemçš„XMLæ–‡ä»¶é‡Œé¢çš„ä¸€ä¸ªImageView,ä¸¤ä¸ªTextView ID   
 	                                                new int[] {R.id.Grid_ItemImage,R.id.Grid_ItemText});  
-	      //Ìí¼Ó²¢ÇÒÏÔÊ¾   
+	      //æ·»åŠ å¹¶ä¸”æ˜¾ç¤º   
 	      gridview.setAdapter(saImageItems);  
-	      //Ìí¼ÓÏûÏ¢´¦Àí   
+	      //æ·»åŠ æ¶ˆæ¯å¤„ç†   
 	      gridview.setOnItemClickListener(new ItemClickListener1());  
 	      }
 	 
@@ -180,9 +180,9 @@ public class ClassifyAct extends Activity {
 	                                  int arg2,//The position of the view in the adapter   
 	                                  long arg3//The row id of the item that was clicked   
 	                                  ) {  
-	    //ÔÚ±¾ÀıÖĞarg2=arg3   
+	    //åœ¨æœ¬ä¾‹ä¸­arg2=arg3   
 	    HashMap<String, Object> item=(HashMap<String, Object>) arg0.getItemAtPosition(arg2);  
-	    //ÏÔÊ¾ËùÑ¡ItemµÄItemText   
+	    //æ˜¾ç¤ºæ‰€é€‰Itemçš„ItemText   
 	    setTitle((String)item.get("ItemText"));  
 	    
 	    Intent intent = new Intent(ClassifyAct.this,SoldingGoodsActivity.class);
@@ -201,21 +201,21 @@ public class ClassifyAct extends Activity {
 		
 		/*
 		 * 
-		 * ÔÚ¸Õ½øÈë·ÖÀà½çÃæ  GridView³õÊ¼»¯Êı¾İ
+		 * åœ¨åˆšè¿›å…¥åˆ†ç±»ç•Œé¢  GridViewåˆå§‹åŒ–æ•°æ®
 		 */
 		/*lstImageItem = new ArrayList<HashMap<String, Object>>();
 		for(int i=0;i<10;i++)  
 	      {  
 	        HashMap<String, Object> map = new HashMap<String, Object>();  
-	        map.put("ItemImage", R.drawable.dinner);//Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID   
-	        map.put("ItemText", "NO."+String.valueOf(i));//°´ĞòºÅ×öItemText   
+	        map.put("ItemImage", R.drawable.dinner);//æ·»åŠ å›¾åƒèµ„æºçš„ID   
+	        map.put("ItemText", "NO."+String.valueOf(i));//æŒ‰åºå·åšItemText   
 	        lstImageItem.add(map);  
 	      }*/
 		setGridView1();
 		classify_search = (ImageView) findViewById(R.id.clissify_search_iv);
 		classify_search.setOnClickListener(new OnClickListener(){
 			public void onClick(View arg0) {
-               Toast.makeText(ClassifyAct.this,"ÇëÏÈÊäÈëËÑË÷ÄÚÈİ",500).show();       
+               Toast.makeText(ClassifyAct.this,"è¯·å…ˆè¾“å…¥æœç´¢å†…å®¹",500).show();       
 			}
 			
 		});

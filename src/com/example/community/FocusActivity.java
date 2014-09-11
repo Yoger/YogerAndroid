@@ -1,14 +1,17 @@
-package com.example.community;
+ï»¿package com.example.community;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -22,35 +25,46 @@ public class FocusActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_focus);
    
-      //°ó¶¨XMLÖĞµÄListView£¬×÷ÎªItemµÄÈİÆ÷  
+      //ç»‘å®šXMLä¸­çš„ListViewï¼Œä½œä¸ºItemçš„å®¹å™¨  
         ListView focusListView = (ListView) findViewById(R.id.focusListView); 
        
           
-        //Éú³É¶¯Ì¬Êı×é£¬²¢ÇÒ×ªÔØÊı¾İ  
+        //ç”ŸæˆåŠ¨æ€æ•°ç»„ï¼Œå¹¶ä¸”è½¬è½½æ•°æ®  
         ArrayList<HashMap<String, Object>> focusList = new ArrayList<HashMap<String, Object>>();  
          
         HashMap<String, Object> map1 = new HashMap<String, Object>();  
         map1.put("ItemImage", R.drawable.no_pic);  
-        map1.put("ItemTitle", "ÕÅÈı");  
+        map1.put("ItemTitle", "å¼ ä¸‰");  
         focusList.add(map1);  
         
         HashMap<String, Object> map2 = new HashMap<String, Object>();  
         map2.put("ItemImage", R.drawable.no_pic);  
-        map2.put("ItemTitle", "ÀîËÄ");  
+        map2.put("ItemTitle", "æå››");  
         focusList.add(map2);
         
-        //Éú³ÉÊÊÅäÆ÷£¬Êı×é===¡·ListItem  
-        SimpleAdapter focusListSchedule = new SimpleAdapter(this, //Ã»Ê²Ã´½âÊÍ  
-        		                                    focusList,//Êı¾İÀ´Ô´   
-                                                    R.layout.ding_dan_manage,//ListItemµÄXMLÊµÏÖ  
+        //ç”Ÿæˆé€‚é…å™¨ï¼Œæ•°ç»„===ã€‹ListItem  
+        SimpleAdapter focusListSchedule = new SimpleAdapter(this, //æ²¡ä»€ä¹ˆè§£é‡Š  
+        		                                    focusList,//æ•°æ®æ¥æº   
+                                                    R.layout.ding_dan_manage,//ListItemçš„XMLå®ç°  
                                                       
-                                                    //¶¯Ì¬Êı×éÓëListItem¶ÔÓ¦µÄ×ÓÏî          
+                                                    //åŠ¨æ€æ•°ç»„ä¸ListItemå¯¹åº”çš„å­é¡¹          
                                                     new String[] {"ItemImage", "ItemTitle"},   
                                                       
-                                                    //ListItemµÄXMLÎÄ¼şÀïÃæµÄÁ½¸öTextView ID  
+                                                    //ListItemçš„XMLæ–‡ä»¶é‡Œé¢çš„ä¸¤ä¸ªTextView ID  
                                                     new int[] {R.id.ItemImage,R.id.ItemTitle});  
-        //Ìí¼Ó²¢ÇÒÏÔÊ¾  
+        //æ·»åŠ å¹¶ä¸”æ˜¾ç¤º  
         focusListView.setAdapter(focusListSchedule); 
+        
+        focusListView.setOnItemClickListener(new OnItemClickListener(){
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(FocusActivity.this,DisplayInfoActivity.class);
+				startActivity(intent);
+			}
+        });
 
 
         Button btnBack = (Button) findViewById(R.id.TitleBackBtn);
@@ -68,7 +82,7 @@ public class FocusActivity extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) 
 		{
-			// °´ÏÂµÄÈç¹ûÊÇBACK£¬Í¬Ê±Ã»ÓĞÖØ¸´
+			// æŒ‰ä¸‹çš„å¦‚æœæ˜¯BACKï¼ŒåŒæ—¶æ²¡æœ‰é‡å¤
 			finish();
 
 			return true;

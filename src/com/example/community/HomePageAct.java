@@ -1,4 +1,4 @@
-package com.example.community;
+Ôªøpackage com.example.community;
 
 
 import android.os.Bundle;
@@ -26,8 +26,10 @@ public class HomePageAct extends ActivityGroup  {
 	private LocalActivityManager localActivityManager1 = null;
 	//private ScrollView messagesScrollView = null;
 	private LinearLayout message=null;
-     private ImageView search_iv=null;
-     private EditText home_search=null;
+	private ImageView search_iv=null;
+	private EditText home_search=null;
+	private Button button1 = null;
+	private Button button2 = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,17 +41,23 @@ public class HomePageAct extends ActivityGroup  {
 		message.addView(localActivityManager1.startActivity("Module1",
 				new Intent(HomePageAct.this, RecommendAct.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
 		
-		Button button1 = (Button) findViewById(R.id.button1);
+		button1 = (Button) findViewById(R.id.button1);
+		button2 = (Button) findViewById(R.id.button2);
+		
 		button1.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				button1.setBackgroundResource(R.drawable.mainbuttonback_s);
+				button2.setBackgroundResource(R.drawable.mainbuttonback_ns);
 				message.removeAllViews();
 				message.addView(localActivityManager1.startActivity("Module1",
 						new Intent(HomePageAct.this, RecommendAct.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
 			}
 		});
-		Button button2 = (Button) findViewById(R.id.button2);
+		
 		button2.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				button1.setBackgroundResource(R.drawable.mainbuttonback_ns);
+				button2.setBackgroundResource(R.drawable.mainbuttonback_s);
 				message.removeAllViews();
 				message.addView(localActivityManager1.startActivity("Module2",
 						new Intent(HomePageAct.this, MovementAct.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
@@ -60,7 +68,7 @@ public class HomePageAct extends ActivityGroup  {
 		search_iv = (ImageView) findViewById(R.id.homepage_search_button);
 		search_iv.setOnClickListener(new OnClickListener(){
 			public void onClick(View arg0) {
-               Toast.makeText(HomePageAct.this,"«Îœ» ‰»ÎÀ—À˜ƒ⁄»›",500).show();
+               Toast.makeText(HomePageAct.this,"ËØ∑ÂÖàËæìÂÖ•ÊêúÁ¥¢ÂÜÖÂÆπ",500).show();
                
 				
 			}

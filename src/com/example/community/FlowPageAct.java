@@ -1,4 +1,4 @@
-package com.example.community;
+锘縫ackage com.example.community;
 
 import android.R.color;
 import android.annotation.SuppressLint;
@@ -54,7 +54,7 @@ public class FlowPageAct extends Activity {
 				finish();
 			}
 		});
-//		LinearLayout v = (LinearLayout)findViewById(R.id.flow_empty);//找到你要设透明背景的layout 的id
+//		LinearLayout v = (LinearLayout)findViewById(R.id.flow_empty);//鎵惧埌浣犺璁鹃�忔槑鑳屾櫙鐨刲ayout 鐨刬d
 //		v.setBackgroundColor(color.transparent);
 //		v.setAlpha(255);
 	}

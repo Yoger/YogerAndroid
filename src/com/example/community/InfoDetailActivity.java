@@ -257,7 +257,7 @@ public class InfoDetailActivity extends Activity {
 	   private void askForOut() {
    		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-   		builder.setTitle("确定退出").setMessage("确定退出？").setPositiveButton("确定",
+   		builder.setTitle("确定退出").setMessage("确定退出当前账户？").setPositiveButton("确定",
    				new DialogInterface.OnClickListener() {
    					@Override
    					public void onClick(DialogInterface dialog, 

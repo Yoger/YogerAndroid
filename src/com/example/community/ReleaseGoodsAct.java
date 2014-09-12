@@ -64,6 +64,7 @@ public class ReleaseGoodsAct extends Activity {
 		
 		uploadGoodsImageBtn.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
+				//goodsImage = (ImageView) findViewById(R.id.goodsRelease_GoodsPic);
 				showDialog();
 			}
 		});
@@ -75,7 +76,8 @@ public class ReleaseGoodsAct extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+				/*goodsImage = (ImageView) findViewById(R.id.GoodsDetail_GoodsDetailPic1);*/
+				//showDialog();
 			}
 		});
 		
@@ -256,6 +258,12 @@ public class ReleaseGoodsAct extends Activity {
 				Drawable drawable = new BitmapDrawable(getResources(), photo);
 				goodsImage.setImageDrawable(drawable);
 	    }
+		/* Bundle extras = data.getExtras();  
+	        if (extras != null) {  
+	            Bitmap photo = extras.getParcelable("data");  
+	            Drawable drawable = new BitmapDrawable(this.getResources(),photo);  
+	            goodsImage.setImageDrawable(drawable);  
+	        }*/
 	 }
 
 }

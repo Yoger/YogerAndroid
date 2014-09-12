@@ -25,7 +25,8 @@
 		    android:layout_height="fill_parent"
 		    android:layout_weight="1"
 		    android:layout_gravity="center"
-		    android:orientation="vertical">
+		    android:orientation="vertical"
+		    android:id="@+id/mainpage_first_ll">
 		    
 		        <ImageView
 		            android:id="@+id/bre"
@@ -50,7 +51,8 @@
 		    android:layout_height="fill_parent"
 		    android:layout_weight="1"
 		    android:layout_gravity="center"
-		    android:orientation="vertical">   
+		    android:orientation="vertical"
+		    android:id="@+id/mainpage_second_ll">   
 		    <ImageView
 		            android:id="@+id/lunch"
 		            android:layout_width="wrap_content"
@@ -88,7 +90,8 @@
 		    android:layout_height="fill_parent"
 		    android:layout_gravity="center"
 		        android:layout_weight="1"
-		    android:orientation="vertical">   
+		    android:orientation="vertical"
+		    android:id="@+id/mainpage_third_ll">   
 		        <ImageView
 		            android:id="@+id/dinner"
 		            android:layout_width="wrap_content"
@@ -112,7 +115,8 @@
 		    android:layout_width="0dp"
 		    android:layout_height="fill_parent"
 		    android:layout_weight="1"
-		    android:orientation="vertical">   
+		    android:orientation="vertical"
+		    android:id="@+id/mainpage_fourth_ll">   
 		    
 		    <ImageView
 		        android:id="@+id/sweet"

@@ -73,5 +73,6 @@
     <string name="title_activity_given_up_goods">GivenUpGoodsActivity</string>
     <string name="title_activity_seeking">SeekingActivity</string>
     <string name="title_activity_checking_seek">CheckingSeekActivity</string>
+    <string name="title_activity_message">MessageActivity</string>
 
 </resources>

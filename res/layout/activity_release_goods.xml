@@ -225,6 +225,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:contentDescription="@null"
+            android:scaleType="fitXY"
             android:src="@drawable/no_pic" />
             <ImageView
             android:id="@+id/goodsRelease_GoodsDetailPic2"
@@ -232,12 +233,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:contentDescription="@null"
+            android:scaleType="fitXY"
             android:src="@drawable/no_pic" />
               <ImageView
             android:id="@+id/goodsRelease_GoodsDetailPic3"
             android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:contentDescription="@null"
+            android:scaleType="fitXY"
             android:layout_weight="1"
             android:src="@drawable/no_pic" />
         

@@ -99,7 +99,6 @@
             android:name=".ChooseClassifyAct"
             android:label="@string/title_activity_choose_classify" >
         </activity>
-
         <activity
             android:name=".ReleaseSeekAct"
             android:label="@string/title_activity_release_seek" >
@@ -110,8 +109,8 @@
         </activity>
         <activity
             android:name=".FlowPageAct"
-            android:theme="@style/Transparent"
-            android:label="@string/title_activity_flow_page" >
+            android:label="@string/title_activity_flow_page"
+            android:theme="@style/Transparent" >
         </activity>
         <activity
             android:name=".CollectActivity"
@@ -141,10 +140,12 @@
             android:name=".CheckingSeekActivity"
             android:label="@string/title_activity_checking_seek" >
         </activity>
-        
+        <activity
+            android:name=".MessageActivity"
+            android:label="@string/title_activity_message" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
 </manifest>
-

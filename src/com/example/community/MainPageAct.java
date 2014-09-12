@@ -36,6 +36,7 @@ public class MainPageAct extends ActivityGroup {
 	private ImageView sweetImageView =null;
 	private ImageView addImageView=null;
 	private TextView firstTv ,secondTv ,thirdTv ,fourthTv;
+	private LinearLayout firstll,secondll,thirdll,fourthll;
 
 
 	private LocalActivityManager localActivityManager = null;
@@ -65,7 +66,59 @@ public class MainPageAct extends ActivityGroup {
 				new Intent(MainPageAct.this, HomePageAct.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
 		
 		
+		
+		firstll = (LinearLayout) findViewById(R.id.mainpage_first_ll);
+		secondll = (LinearLayout) findViewById(R.id.mainpage_second_ll);
+		thirdll = (LinearLayout) findViewById(R.id.mainpage_third_ll);
+		fourthll = (LinearLayout) findViewById(R.id.mainpage_fourth_ll);
+		
+		firstll.setOnClickListener(new OnClickListener(){
 
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				changeMainPageState(1);
+				messagesBox.removeAllViews();
+				messagesBox.addView(localActivityManager.startActivity("Module1",
+				new Intent(MainPageAct.this, HomePageAct.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
+			}
+		});
+		
+		secondll.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				changeMainPageState(2);
+				messagesBox.removeAllViews();
+				messagesBox.addView(localActivityManager.startActivity("Module2",
+				new Intent(MainPageAct.this, MakeMoneyAct.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
+			}
+		});
+		
+		thirdll.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				changeMainPageState(3);
+				messagesBox.removeAllViews();
+				messagesBox.addView(localActivityManager.startActivity("Module3",
+				new Intent(MainPageAct.this, ClassifyAct.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
+			}
+		});
+		
+		fourthll.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				changeMainPageState(4);
+				messagesBox.removeAllViews();
+				messagesBox.addView(localActivityManager.startActivity("Module4",
+				new Intent(MainPageAct.this, InfoDetailActivity.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
+			}
+		});
 
 		
 		breImageView = (ImageView) findViewById(R.id.bre);
@@ -81,13 +134,13 @@ public class MainPageAct extends ActivityGroup {
 		fourthTv = (TextView)findViewById(R.id.mainpage_fourth);
 		
 		
-		breImageView.setOnClickListener(new OnClickListener() {
+		/*breImageView.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 //				breImageView.setBackgroundResource(getResources().getIdentifier("home_s", "drawable", getPackageName()));
 				changeMainPageState(1);
 				messagesBox.removeAllViews();
 				messagesBox.addView(localActivityManager.startActivity("Module1",
-						new Intent(MainPageAct.this, HomePageAct.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
+				new Intent(MainPageAct.this, HomePageAct.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
 			}
 		});
 		
@@ -99,7 +152,6 @@ public class MainPageAct extends ActivityGroup {
 						new Intent(MainPageAct.this, MakeMoneyAct.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
 			}
 		});
-		dinnerImageView = (ImageView) findViewById(R.id.dinner);
 		dinnerImageView.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				changeMainPageState(3);
@@ -108,7 +160,6 @@ public class MainPageAct extends ActivityGroup {
 						new Intent(MainPageAct.this, ClassifyAct.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
 			}
 		});
-		sweetImageView = (ImageView) findViewById(R.id.sweet);
 		sweetImageView.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				changeMainPageState(4);
@@ -116,7 +167,7 @@ public class MainPageAct extends ActivityGroup {
 				messagesBox.addView(localActivityManager.startActivity("Module4",
 						new Intent(MainPageAct.this,InfoDetailActivity.class).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
 			}
-		});
+		});*/
 		
 		changeMainPageState(1);
 

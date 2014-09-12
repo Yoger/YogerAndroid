@@ -17,6 +17,11 @@ public class GoodsDetailAct extends Activity {
 	
 	
     private ImageView star = null;
+    private boolean flag_star = false;
+    private ImageView collect_image = null;
+    private boolean flag_collect_image = false;
+    private ImageView share_image = null;
+    private boolean flag_share_image = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,28 +40,58 @@ public class GoodsDetailAct extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				star.setImageDrawable(getResources().getDrawable(R.drawable.star_good));
+				if(!flag_star){
+					star.setImageDrawable(getResources().getDrawable(R.drawable.star_good));
+					flag_star = true;
+					Toast.makeText(getApplicationContext(), "已点赞", Toast.LENGTH_SHORT).show();
+				}
+				else{
+					star.setImageDrawable(getResources().getDrawable(R.drawable.star_bad));
+					flag_star = false;
+					Toast.makeText(getApplicationContext(), "已取消赞", Toast.LENGTH_SHORT).show();
+				}
 			}
 			
 		});
-
+		
+		collect_image = (ImageView) findViewById(R.id.collect_image);
 		
 		collect_goods.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), "已收藏", Toast.LENGTH_SHORT).show();
+				if(!flag_collect_image){
+					collect_image.setImageDrawable(getResources().getDrawable(R.drawable.card_icon_favorite_highlighted));
+					flag_collect_image = true;
+					Toast.makeText(getApplicationContext(), "已收藏", Toast.LENGTH_SHORT).show();
+				}
+				else{
+					collect_image.setImageDrawable(getResources().getDrawable(R.drawable.card_icon_favorite));
+					flag_collect_image = false;
+					Toast.makeText(getApplicationContext(), "已取消收藏", Toast.LENGTH_SHORT).show();
+				}
 			}
 			
 		});
+		
+		share_image = (ImageView) findViewById(R.id.share_image);
 		
 		share_goods.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), "已分享", Toast.LENGTH_SHORT).show();
+				if(!flag_share_image){
+					share_image.setImageDrawable(getResources().getDrawable(R.drawable.guide_tfaccount_on));
+					flag_share_image = true;
+					Toast.makeText(getApplicationContext(), "已分享", Toast.LENGTH_SHORT).show();
+				}
+				else{
+					share_image.setImageDrawable(getResources().getDrawable(R.drawable.guide_tfaccount_nm));
+					flag_share_image = false;
+					Toast.makeText(getApplicationContext(), "已取消分享", Toast.LENGTH_SHORT).show();
+				}
 			}
 			
 		});

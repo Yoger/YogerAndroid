@@ -1,8 +1,8 @@
 ﻿package com.example.community;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
@@ -101,7 +101,8 @@ public class GoodsDetailAct extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), "已留言", Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(GoodsDetailAct.this,MessageActivity.class);
+				startActivity(intent);
 			}
 			
 		});

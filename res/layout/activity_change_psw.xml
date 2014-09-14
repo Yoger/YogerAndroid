@@ -33,33 +33,36 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/oldpwd_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView2"
+        android:layout_above="@id/textView2"
         android:layout_marginLeft="21dp"
-        android:layout_toRightOf="@+id/textView1"
+        android:layout_toRightOf="@id/textView1"
+        android:inputType="textPassword"
         android:ems="10" >
 
         <requestFocus />
     </EditText>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/newpwd1_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_alignRight="@+id/editText1"
+        android:layout_alignBottom="@id/textView2"
+        android:layout_alignLeft="@id/oldpwd_edit"
+        android:layout_alignRight="@id/oldpwd_edit"
+        android:inputType="textPassword"
         android:ems="10" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/newpwd2_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignRight="@+id/editText2"
+        android:layout_alignBottom="@id/textView3"
+        android:layout_alignLeft="@id/newpwd1_edit"
+        android:layout_alignRight="@id/newpwd1_edit"
+        android:inputType="textPassword"
         android:ems="10" />
 
     <TextView

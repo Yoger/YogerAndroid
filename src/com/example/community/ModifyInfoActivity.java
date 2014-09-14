@@ -2,9 +2,25 @@
 
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.JSONObject;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.Request.Method;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.rt.BASE64Decoder;
+import com.rt.BASE64Encoder;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -31,6 +47,9 @@ public class ModifyInfoActivity extends Activity {
 	
 	private LinearLayout switchAvatar;
 	private ImageView faceImage;
+	File tempFile=null;
+	String imagePath=null;
+	String newFileUrl="/data/data/com.example.community/cache/newava.jpg";
 
 	 @Override
 	    protected void onCreate(Bundle savedInstanceState) {
@@ -252,10 +271,8 @@ public class ModifyInfoActivity extends Activity {
 		        Bundle extras = data.getExtras();
 				if (extras != null) {
 					Bitmap photo = extras.getParcelable("data");
-					File tempFile = new File(
-							Environment
-									.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)
-									+ "/" + IMAGE_AVATAR);
+//					tempFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)+ "/" + IMAGE_AVATAR);
+					tempFile=new File("/data/data/com.example.community/cache/"+IMAGE_AVATAR);
 					BufferedOutputStream bos;
 					try {
 						bos = new BufferedOutputStream(new FileOutputStream(tempFile));
@@ -267,9 +284,84 @@ public class ModifyInfoActivity extends Activity {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-
+					imagePath=tempFile.getPath();
+                    System.out.println(tempFile.getPath());
 					Drawable drawable = new BitmapDrawable(getResources(), photo);
 					faceImage.setImageDrawable(drawable);
+//					try {
+//						generateImage(getImageStr(imagePath),newFileUrl);
+//					} catch (Exception e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+					upImage();
+					
 		    }
 		 }
+		 public static String getImageStr(String imgFile) {// 将图片文件转化为字节数组字符串，并对其进行Base64编码处理
+			//String imgFile = "d:\\111.jpg";// 待处理的图片
+			InputStream in = null;
+			byte[] data = null;
+			// 读取图片字节数组
+			try {
+			in = new FileInputStream(imgFile);
+			data = new byte[in.available()];
+			in.read(data);
+			in.close();
+			} catch (IOException e) {
+			e.printStackTrace();
+			}
+			// 对字节数组Base64编码
+			BASE64Encoder encoder = new BASE64Encoder();
+			return encoder.encode(data);// 返回Base64编码过的字节数组字符串
+			}
+		 public void upImage(){
+				String url="http://192.168.0.103:8080/changepassword.json";
+				RequestQueue mQueue=Volley.newRequestQueue(this);
+				Map<String, Object> appendHeader = new HashMap<String, Object>();
+				appendHeader.put("userID", 1);
+				appendHeader.put("oldpwd",156);
+				appendHeader.put("newpwd", getImageStr(imagePath));
+				JsonObjectRequest mRequest=new JsonObjectRequest(Method.POST, url, new JSONObject(appendHeader), new Response.Listener<JSONObject>() {
+
+					@Override
+					public void onResponse(JSONObject response) {
+						// TODO Auto-generated method stub
+						System.out.println(response.toString());
+					}
+				}, new Response.ErrorListener() {
+
+					@Override
+					public void onErrorResponse(VolleyError error) {
+						// TODO Auto-generated method stub
+						
+					}
+				});
+				mQueue.add(mRequest);
+				
+			}
+		
+		 public static boolean generateImage(String imgStr,String imgFile)throws Exception {// 对字节数组字符串进行Base64解码并生成图片
+			 if (imgStr == null) // 图像数据为空
+			 return false;
+			 BASE64Decoder decoder = new BASE64Decoder();
+			 try {
+			 // Base64解码
+			 byte[] b = decoder.decodeBuffer(imgStr);
+			 for (int i = 0; i < b.length; ++i) {
+			 if (b[i] < 0) {// 调整异常数据
+			 b[i] += 256;
+			 }
+			 }
+			 // 生成jpeg图片
+			 String imgFilePath = imgFile;// 新生成的图片
+			 OutputStream out = new FileOutputStream(imgFilePath);
+			 out.write(b);
+			 out.flush();
+			 out.close();
+			 return true;
+			 } catch (Exception e) {
+			 throw e;
+			 }
+			 }
 }

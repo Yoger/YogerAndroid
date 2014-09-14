@@ -1,6 +1,7 @@
 ﻿package com.example.community;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -9,17 +10,31 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class ReleaseSeekAct extends Activity {
+	private Button register_commite;
+	private EditText styleEd=null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_release_seek);
-		
-		Button register_commite=(Button) findViewById(R.id.button_register_commite);
-		
+		styleEd=(EditText)findViewById(R.id.edit_seek_style);
+		styleEd.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent=new Intent(ReleaseSeekAct.this,ChooseClassifyAct.class);
+				Bundle b=new Bundle();
+				b.putString("Act", "seek");
+				intent.putExtras(b);
+				startActivity(intent);
+			}
+		});
+		register_commite=(Button) findViewById(R.id.button_register_commite);
 		register_commite.setOnClickListener(new OnClickListener(){
 
 			@Override

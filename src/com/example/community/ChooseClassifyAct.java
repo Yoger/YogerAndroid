@@ -23,7 +23,8 @@ import android.widget.TextView;
 public class ChooseClassifyAct extends Activity {   
     private List<String> mListData;
     private ListView ls=null;
-  	 
+  	private String Act; 
+  	private ArrayList<HashMap<String, Object>> lstImageItem = null;
     private List<String> getListData() {
 		List<String> list = new ArrayList<String>();
         list.add("衣服");
@@ -143,7 +144,6 @@ public class ChooseClassifyAct extends Activity {
       
 /////gridview
 	
-	ArrayList<HashMap<String, Object>> lstImageItem = new ArrayList<HashMap<String, Object>>();
  public void setGridView1(){
 	  MyGridView gridview = (MyGridView) findViewById(R.id.choose_classify_gridView1);   
       //生成适配器的ImageItem <====> 动态数组的元素，两者一一对应   
@@ -189,8 +189,8 @@ public class ChooseClassifyAct extends Activity {
 		ls=(ListView)findViewById(R.id.choose_classfy_listview);
 		ls.setAdapter(adapter);
 		setGridView1();
-
-
+        Bundle b=this.getIntent().getExtras();
+        Act=b.getString("Act");
 		Button btnBack = (Button) findViewById(R.id.TitleBackBtn);
 
 		btnBack.setOnClickListener(new OnClickListener() {

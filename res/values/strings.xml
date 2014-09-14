@@ -64,6 +64,9 @@
     <string name="search_button">搜索</string>
     <string name="mainpage_button_sys">推荐</string>
     <string name="mainpage_button_mov">动态</string>
+    <string name="style_hint">点击选择类别</string>
+    <string name="userName_hint">点击输入用户名</string>
+    <string name="userPassword_hint">点击输入密码</string>
     <string name="title_activity_searching">SearchingAct</string>
     <string name="title_activity_flow_page">FlowPageAct</string>
     <string name="title_activity_collect">CollectActivity</string>

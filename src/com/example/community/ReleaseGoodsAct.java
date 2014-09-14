@@ -23,26 +23,32 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 public class ReleaseGoodsAct extends Activity {
 	
 	private ImageView goodsImage;
-
+    private EditText choose_style=null; 
+    private Button register_commite=null;
+    private Button uploadGoodsImageBtn=null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_release_goods);
-		Button choose_style=(Button)findViewById(R.id.button_release_style);
-		Button register_commite=(Button)findViewById(R.id.button_register_commite);
+		choose_style=(EditText)findViewById(R.id.Edit_release_style);
+		register_commite=(Button)findViewById(R.id.button_register_commite);
 		choose_style.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				Intent intent=new Intent(ReleaseGoodsAct.this,ChooseClassifyAct.class);
+				Bundle b=new Bundle();
+				b.putString("Act", "Goods");
+				intent.putExtras(b);
 				startActivity(intent);
 			}
 		});
@@ -59,8 +65,7 @@ public class ReleaseGoodsAct extends Activity {
 
 		
 		goodsImage = (ImageView) findViewById(R.id.goodsRelease_GoodsPic);
-		
-		Button uploadGoodsImageBtn = (Button) findViewById(R.id.GoodsRelease_GoodsPhoto);
+		uploadGoodsImageBtn = (Button) findViewById(R.id.GoodsRelease_GoodsPhoto);
 		
 		uploadGoodsImageBtn.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {

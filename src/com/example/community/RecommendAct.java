@@ -7,6 +7,10 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -27,6 +31,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
+import com.community.local.LocalValue;
+import com.community.volley.MyJsonArrayRequest;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnLastItemVisibleListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
@@ -40,7 +50,7 @@ public int[] picture = { R.drawable.adver1, R.drawable.adver2,
 private MyGallery pictureGallery = null;
 private int index = 0;
 private PullToRefreshListView mPullRefreshListView;
-	
+private String url=LocalValue.getUrl()+"recommand.json";	
 	private List<Map<String, Object>> getData() {
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 
@@ -346,6 +356,26 @@ private PullToRefreshListView mPullRefreshListView;
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.recommend, menu);
 		return true;
+	}
+	public void volleyUser(Context con,String url,JSONObject jsonObject){
+		RequestQueue mQueue=Volley.newRequestQueue(con);
+		MyJsonArrayRequest mMyJsonArrayRequest=new MyJsonArrayRequest(url, jsonObject, new Response.Listener<JSONArray>() {
+			@Override
+			public void onResponse(JSONArray response) {
+				// TODO Auto-generated method stub
+				System.out.println(response.toString());
+	
+			}
+		}, new Response.ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				// TODO Auto-generated method stub
+				System.out.println("myJSReq--json receive failed!");
+			}
+		});
+		mQueue.add(mMyJsonArrayRequest); 
+		
 	}
 
 }

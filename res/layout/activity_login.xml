@@ -27,9 +27,8 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:background="@drawable/login_text_shape"
-            android:hint="login_lable_name_hint"
-            android:paddingLeft="28dp"
-            android:text="guanyu" >
+            android:hint="@string/userName_hint"
+            android:paddingLeft="28dp" >
 
             <!-- android:layout_toRightOf="@id/lblUser" -->
 
@@ -73,10 +72,9 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:background="@drawable/login_text_shape"
-            android:hint="login_lable_pwd_hint"
+            android:hint="@string/userPassword_hint"
             android:inputType="textPassword"
-            android:paddingLeft="28dp"
-            android:text="guanyu" />
+            android:paddingLeft="28dp" />
         <!-- android:layout_toRightOf="@id/lblPwd" -->
 
         <ImageView
